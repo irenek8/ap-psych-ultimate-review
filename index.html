@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AP Psychology Ultimate Study Guide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f5f4f0;
+      --bg-tertiary: #eeede8;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a56;
+      --text-tertiary: #9a9994;
+      --border-light: rgba(0,0,0,0.1);
+      --border-mid: rgba(0,0,0,0.18);
+      --purple-50: #EEEDFE;
+      --purple-200: #AFA9EC;
+      --purple-400: #7F77DD;
+      --purple-600: #534AB7;
+      --purple-800: #3C3489;
+      --purple-900: #26215C;
+      --amber-50: #FAEEDA;
+      --amber-200: #FAC775;
+      --amber-600: #BA7517;
+      --amber-800: #633806;
+      --coral-50: #FAECE7;
+      --coral-200: #F0997B;
+      --coral-600: #993C1D;
+      --coral-800: #712B13;
+      --teal-50: #E1F5EE;
+      --teal-200: #9FE1CB;
+      --teal-600: #0F6E56;
+      --teal-900: #04342C;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #1e1e1c;
+        --bg-secondary: #272725;
+        --bg-tertiary: #2e2e2b;
+        --text-primary: #f0efe8;
+        --text-secondary: #a8a79f;
+        --text-tertiary: #6a6960;
+        --border-light: rgba(255,255,255,0.08);
+        --border-mid: rgba(255,255,255,0.14);
+        --purple-50: #26215C;
+        --purple-200: #3C3489;
+        --purple-400: #534AB7;
+        --purple-600: #AFA9EC;
+        --purple-800: #CECBF6;
+        --purple-900: #EEEDFE;
+        --amber-50: #412402;
+        --amber-200: #854F0B;
+        --amber-600: #FAC775;
+        --amber-800: #FAEEDA;
+        --coral-50: #4A1B0C;
+        --coral-200: #993C1D;
+        --coral-600: #F0997B;
+        --coral-800: #FAECE7;
+        --teal-50: #04342C;
+        --teal-200: #085041;
+        --teal-600: #5DCAA5;
+        --teal-900: #E1F5EE;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .page-wrap { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    /* ── Header ── */
+    .sg-header {
+      text-align: center;
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .sg-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--purple-50);
+      color: var(--purple-800);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .sg-title { font-size: 28px; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; }
+    .sg-subtitle { font-size: 14px; color: var(--text-secondary); }
+
+    /* ── Exam Stats ── */
+    .exam-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .exam-card {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      text-align: center;
+    }
+    .exam-card .ec-val { font-size: 24px; font-weight: 700; color: var(--purple-600); }
+    .exam-card .ec-lbl { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
+
+    /* ── Search ── */
+    .search-wrap {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-wrap input {
+      width: 100%;
+      font-size: 15px;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .search-wrap input:focus { border-color: var(--purple-400); }
+    .search-wrap input::placeholder { color: var(--text-tertiary); }
+    .search-result { font-size: 13px; color: var(--text-secondary); margin-top: 0.5rem; }
+    #search-results-display { margin-top: 0.75rem; }
+    #search-results-display .sr-item {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      padding: 8px 0; border-bottom: 0.5px solid var(--border-light);
+    }
+    #search-results-display .sr-item:last-child { border-bottom: none; }
+    .sr-meta { font-size: 12px; color: var(--text-secondary); }
+    .sr-hi { font-size: 11px; color: var(--coral-600); font-weight: 600; }
+
+    /* ── Unit Nav ── */
+    .unit-nav {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+    .unit-btn {
+      font-size: 12px; font-weight: 500;
+      border: 0.5px solid var(--border-mid);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .unit-btn:hover { background: var(--purple-50); color: var(--purple-800); border-color: var(--purple-200); }
+    .unit-btn.active { background: var(--purple-600); color: #fff; border-color: var(--purple-600); }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+      background: var(--bg-primary); border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-md); padding: 0.65rem 1rem;
+      margin-bottom: 1.25rem; font-size: 13px; color: var(--text-secondary);
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Unit Sections ── */
+    .unit-section {
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .unit-header {
+      background: var(--purple-50);
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .unit-header:hover { background: var(--purple-200); }
+    .unit-num { font-size: 11px; font-weight: 600; color: var(--purple-600); text-transform: uppercase; letter-spacing: 0.07em; }
+    .unit-title { font-size: 16px; font-weight: 600; color: var(--purple-900); margin-top: 3px; }
+    .unit-chevron { font-size: 18px; color: var(--purple-600); transition: transform 0.25s; flex-shrink: 0; }
+    .unit-header.open .unit-chevron { transform: rotate(180deg); }
+
+    .unit-body { display: none; padding: 0 1.5rem 1.5rem; }
+    .unit-body.open { display: block; }
+
+    /* ── Chapters ── */
+    .chapter { padding-top: 1.25rem; margin-top: 1.25rem; border-top: 0.5px solid var(--border-light); }
+    .chapter:first-child { border-top: none; margin-top: 0.5rem; padding-top: 0.5rem; }
+    .ch-label { font-size: 11px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .ch-name { font-size: 17px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.9rem; }
+
+    .content-block { margin-bottom: 1rem; }
+    .content-label { font-size: 11px; font-weight: 600; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
+    .content-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+
+    .key-point {
+      padding: 5px 0 5px 12px;
+      border-left: 2.5px solid var(--purple-200);
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Vocab Pills ── */
+    .vocab-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 0.5rem; }
+    .vocab-pill {
+      display: inline-flex; align-items: center;
+      background: var(--amber-50); color: var(--amber-800);
+      border: 0.5px solid var(--amber-200);
+      border-radius: 20px;
+      font-size: 12px; font-weight: 500;
+      padding: 4px 11px;
+      cursor: default;
+      transition: all 0.15s;
+    }
+    .vocab-pill.high {
+      background: var(--coral-50); color: var(--coral-800);
+      border-color: var(--coral-200);
+    }
+
+    /* ── Tip Box ── */
+    .tip-box {
+      background: var(--teal-50);
+      border: 0.5px solid var(--teal-200);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      font-size: 13px;
+      color: var(--teal-600);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .tip-box strong { color: var(--teal-900); }
+
+    /* ── Footer ── */
+    .sg-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .exam-bar { grid-template-columns: repeat(3, 1fr); }
+      .sg-title { font-size: 22px; }
+      .page-wrap { padding: 1rem 0.75rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="sg-header">
+    <div class="sg-badge">AP Psychology</div>
+    <div class="sg-title">Ultimate Study Guide</div>
+    <div class="sg-subtitle">Myers' Psychology for the AP Course, 4th Edition &mdash; All 9 Units</div>
+  </div>
+
+  <div class="exam-bar">
+    <div class="exam-card"><div class="ec-val">100</div><div class="ec-lbl">Multiple Choice Qs</div></div>
+    <div class="exam-card"><div class="ec-val">2</div><div class="ec-lbl">Free Response Qs</div></div>
+    <div class="exam-card"><div class="ec-val">120 min</div><div class="ec-lbl">Total Exam Time</div></div>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="vocab-search" placeholder="Search vocabulary terms across all units..." oninput="filterVocab(this.value)" />
+    <div class="search-result" id="search-result"></div>
+    <div id="search-results-display"></div>
+  </div>
+
+  <div class="unit-nav" id="unit-nav"></div>
+
+  <div class="legend">
+    <strong style="color:var(--text-primary)">Legend:</strong>
+    <div class="legend-item"><span class="vocab-pill">Term</span> Standard vocabulary</div>
+    <div class="legend-item"><span class="vocab-pill high">Term</span> High-priority AP term</div>
+  </div>
+
+  <div id="units-container"></div>
+
+  <div class="sg-footer">AP Psychology Study Guide &bull; Based on Myers' Psychology for the AP Course, 4th Edition</div>
+</div>
+
+<script>
+const units = [
+  {
+    num: "Unit 1",
+    title: "Scientific Foundations of Psychology",
+    chapters: [
+      {
+        num: "Chapter 1",
+        name: "History, Perspectives, & Research Methods",
+        overview: "Psychology's origins, theoretical perspectives, and scientific research methods. Covers how psychologists think and conduct research to understand behavior and mental processes.",
+        keyPoints: [
+          "Psychology evolved from philosophy and physiology; Wilhelm Wundt opened the first psychology lab in 1879.",
+          "Major perspectives: biological, psychodynamic, behavioral, cognitive, humanistic, sociocultural, evolutionary.",
+          "Scientific method: hypothesis → research design → data collection → analysis → conclusion.",
+          "Research designs: experimental, correlational, descriptive (surveys, case studies, naturalistic observation).",
+          "Statistics: measures of central tendency, standard deviation, statistical significance, and correlation coefficients."
+        ],
+        vocab: [
+          {t:"Psychology",h:true},{t:"Empiricism",h:false},{t:"Structuralism",h:false},{t:"Functionalism",h:false},
+          {t:"Behaviorism",h:true},{t:"Psychoanalysis",h:true},{t:"Humanism",h:false},{t:"Cognitive Neuroscience",h:false},
+          {t:"Hypothesis",h:true},{t:"Theory",h:true},{t:"Operational Definition",h:true},{t:"Replication",h:true},
+          {t:"Case Study",h:true},{t:"Survey",h:true},{t:"Naturalistic Observation",h:true},{t:"Random Sample",h:true},
+          {t:"Correlation",h:true},{t:"Correlation Coefficient",h:true},{t:"Experiment",h:true},
+          {t:"Independent Variable",h:true},{t:"Dependent Variable",h:true},{t:"Control Condition",h:true},
+          {t:"Random Assignment",h:true},{t:"Double-Blind Procedure",h:true},{t:"Placebo Effect",h:true},
+          {t:"Confounding Variable",h:false},{t:"Mean",h:false},{t:"Median",h:false},{t:"Mode",h:false},
+          {t:"Standard Deviation",h:true},{t:"Statistical Significance",h:true},{t:"Effect Size",h:false},{t:"Meta-Analysis",h:false}
+        ],
+        tip: "Know the difference between correlation and causation — a classic AP exam trap! A correlation coefficient of +1 or -1 means perfect correlation, NOT causation."
+      }
+    ]
+  },
+  {
+    num: "Unit 2",
+    title: "Biological Bases of Behavior",
+    chapters: [
+      {
+        num: "Chapter 2",
+        name: "The Biology of Mind",
+        overview: "Neurons, neural communication, brain structures, the nervous system, and the endocrine system. The biological foundation underlying all behavior and mental processes.",
+        keyPoints: [
+          "Neurons: dendrites receive signals, soma integrates them, axon transmits, terminal buttons release neurotransmitters.",
+          "Action potential: all-or-nothing electrical impulse traveling down the axon; refractory period follows firing.",
+          "Synapse: neurotransmitters cross the synaptic cleft, bind to receptors, and either excite or inhibit the postsynaptic neuron.",
+          "Brain lobes: frontal (reasoning, motor), parietal (touch, spatial), occipital (vision), temporal (hearing, language).",
+          "Limbic system: amygdala (emotion/fear), hippocampus (memory formation), hypothalamus (drives/homeostasis).",
+          "Brain imaging: EEG (electrical activity), CT (structure), PET (metabolism), MRI (structure), fMRI (function)."
+        ],
+        vocab: [
+          {t:"Neuron",h:true},{t:"Dendrites",h:true},{t:"Axon",h:true},{t:"Myelin Sheath",h:true},
+          {t:"Action Potential",h:true},{t:"Threshold",h:true},{t:"Synapse",h:true},{t:"Neurotransmitter",h:true},
+          {t:"Reuptake",h:true},{t:"Acetylcholine",h:true},{t:"Dopamine",h:true},{t:"Serotonin",h:true},
+          {t:"Norepinephrine",h:false},{t:"GABA",h:true},{t:"Endorphins",h:true},
+          {t:"Central Nervous System",h:true},{t:"Peripheral Nervous System",h:true},
+          {t:"Somatic Nervous System",h:false},{t:"Autonomic Nervous System",h:true},
+          {t:"Sympathetic NS",h:true},{t:"Parasympathetic NS",h:true},
+          {t:"Brainstem",h:true},{t:"Medulla",h:true},{t:"Cerebellum",h:true},{t:"Reticular Formation",h:false},
+          {t:"Thalamus",h:true},{t:"Hypothalamus",h:true},{t:"Limbic System",h:true},
+          {t:"Amygdala",h:true},{t:"Hippocampus",h:true},{t:"Cerebral Cortex",h:true},
+          {t:"Frontal Lobe",h:true},{t:"Parietal Lobe",h:true},{t:"Occipital Lobe",h:true},{t:"Temporal Lobe",h:true},
+          {t:"Motor Cortex",h:true},{t:"Somatosensory Cortex",h:true},{t:"Association Areas",h:false},
+          {t:"Corpus Callosum",h:true},{t:"Split Brain",h:true},{t:"Neuroplasticity",h:true},
+          {t:"Endocrine System",h:true},{t:"Pituitary Gland",h:true},{t:"Hormones",h:true},
+          {t:"EEG",h:false},{t:"fMRI",h:true},{t:"PET Scan",h:false}
+        ],
+        tip: "Brain structures are heavily tested. Know each lobe's function AND the limbic system structures cold. The amygdala = fear/emotion; hippocampus = new memory formation."
+      },
+      {
+        num: "Chapter 3",
+        name: "Consciousness and the Two-Track Mind",
+        overview: "States of consciousness, sleep stages and disorders, dreams, hypnosis, and effects of psychoactive drugs.",
+        keyPoints: [
+          "Consciousness: our awareness of ourselves and our environment; operates on dual tracks (conscious and unconscious).",
+          "Sleep stages: NREM 1 (light) → NREM 2 (sleep spindles) → NREM 3 (slow delta waves) → REM (dreaming, paradoxical sleep).",
+          "Sleep functions: memory consolidation, restoration, growth hormone release, emotional processing.",
+          "Sleep disorders: insomnia (difficulty sleeping), narcolepsy (sudden sleep attacks), sleep apnea (breathing stops), night terrors.",
+          "Dream theories: Freud's wish fulfillment (manifest vs. latent content); activation-synthesis theory; memory consolidation.",
+          "Psychoactive drugs: depressants (alcohol, barbiturates), stimulants (cocaine, caffeine), hallucinogens (LSD, psilocybin)."
+        ],
+        vocab: [
+          {t:"Consciousness",h:true},{t:"Dual Processing",h:true},{t:"Selective Attention",h:true},
+          {t:"Inattentional Blindness",h:true},{t:"Change Blindness",h:false},
+          {t:"Circadian Rhythm",h:true},{t:"REM Sleep",h:true},{t:"Alpha Waves",h:false},
+          {t:"Sleep Spindles",h:false},{t:"Delta Waves",h:false},{t:"Insomnia",h:true},
+          {t:"Narcolepsy",h:true},{t:"Sleep Apnea",h:true},{t:"Night Terrors",h:true},
+          {t:"Manifest Content",h:true},{t:"Latent Content",h:true},{t:"Hypnosis",h:true},
+          {t:"Psychoactive Drug",h:true},{t:"Tolerance",h:true},{t:"Withdrawal",h:true},
+          {t:"Depressants",h:true},{t:"Stimulants",h:true},{t:"Hallucinogens",h:true},
+          {t:"THC",h:false},{t:"LSD",h:false},{t:"Opiates",h:true}
+        ],
+        tip: "Know the sleep cycle order and that REM periods get longer as the night progresses. Each full cycle is ~90 minutes."
+      }
+    ]
+  },
+  {
+    num: "Unit 3",
+    title: "Sensation and Perception",
+    chapters: [
+      {
+        num: "Chapter 4",
+        name: "Sensation and Perception",
+        overview: "How we detect raw sensory information (sensation) and how the brain interprets that information into meaningful experiences (perception).",
+        keyPoints: [
+          "Sensation: stimulus detection via sensory receptors; transduction converts stimuli into neural signals.",
+          "Absolute threshold: minimum stimulation to detect a stimulus 50% of the time.",
+          "Signal Detection Theory: detecting stimuli depends on both sensitivity and decision criteria.",
+          "Weber's Law: the just noticeable difference (JND) is a constant proportion of the original stimulus.",
+          "Vision: rods (dim light, periphery, black & white) vs. cones (color, detail, fovea). Two color theories: Young-Helmholtz (trichromatic) and opponent-process.",
+          "Hearing: sound waves → eardrum → ossicles → cochlea → basilar membrane → hair cells → auditory nerve.",
+          "Gestalt principles: figure-ground, proximity, continuity, closure, similarity organize perception.",
+          "Depth perception: binocular cues (retinal disparity, convergence) and monocular cues (linear perspective, interposition, relative size)."
+        ],
+        vocab: [
+          {t:"Sensation",h:true},{t:"Perception",h:true},{t:"Transduction",h:true},
+          {t:"Absolute Threshold",h:true},{t:"Signal Detection Theory",h:true},
+          {t:"Difference Threshold (JND)",h:true},{t:"Weber's Law",h:true},{t:"Sensory Adaptation",h:true},
+          {t:"Retina",h:true},{t:"Rods",h:true},{t:"Cones",h:true},{t:"Fovea",h:true},
+          {t:"Feature Detectors",h:true},{t:"Parallel Processing",h:false},
+          {t:"Young-Helmholtz Theory",h:true},{t:"Opponent-Process Theory",h:true},
+          {t:"Cochlea",h:true},{t:"Place Theory",h:true},{t:"Frequency Theory",h:true},
+          {t:"Gate-Control Theory",h:true},{t:"Kinesthesis",h:true},{t:"Vestibular Sense",h:true},
+          {t:"Gestalt",h:true},{t:"Figure-Ground",h:true},{t:"Proximity",h:false},{t:"Closure",h:false},
+          {t:"Perceptual Constancy",h:true},{t:"Binocular Cues",h:true},{t:"Retinal Disparity",h:true},
+          {t:"Monocular Cues",h:true},{t:"Linear Perspective",h:false},{t:"Perceptual Set",h:true},
+          {t:"Top-Down Processing",h:true},{t:"Bottom-Up Processing",h:true}
+        ],
+        tip: "Both color theories are correct and tested! Young-Helmholtz explains how we see color; opponent-process explains afterimages."
+      }
+    ]
+  },
+  {
+    num: "Unit 4",
+    title: "Learning",
+    chapters: [
+      {
+        num: "Chapter 5",
+        name: "Learning",
+        overview: "Classical conditioning, operant conditioning, and observational learning — the processes by which experience changes behavior.",
+        keyPoints: [
+          "Classical conditioning (Pavlov): NS paired with UCS produces UCR; NS becomes CS → CR. Key processes: acquisition, extinction, spontaneous recovery, generalization, discrimination.",
+          "Operant conditioning (Skinner): behaviors followed by reinforcement increase; behaviors followed by punishment decrease.",
+          "Four operant combinations: positive reinforcement (+stimulus, behavior ↑), negative reinforcement (−stimulus, behavior ↑), positive punishment (+stimulus, behavior ↓), negative punishment (−stimulus, behavior ↓).",
+          "Reinforcement schedules: fixed ratio (consistent, high rate), variable ratio (highest rate, most extinction-resistant), fixed interval, variable interval.",
+          "Observational learning (Bandura): learn by watching — attention, retention, reproduction, motivation. Bobo doll experiment demonstrated modeled aggression.",
+          "Latent learning (Tolman), insight learning (Kohler), cognitive maps, and intrinsic vs. extrinsic motivation."
+        ],
+        vocab: [
+          {t:"Learning",h:true},{t:"Habituation",h:true},{t:"Classical Conditioning",h:true},
+          {t:"UCS (Unconditioned Stimulus)",h:true},{t:"UCR (Unconditioned Response)",h:true},
+          {t:"CS (Conditioned Stimulus)",h:true},{t:"CR (Conditioned Response)",h:true},
+          {t:"Acquisition",h:true},{t:"Extinction",h:true},{t:"Spontaneous Recovery",h:true},
+          {t:"Generalization",h:true},{t:"Discrimination",h:true},{t:"Higher-Order Conditioning",h:false},
+          {t:"Operant Conditioning",h:true},{t:"Law of Effect",h:true},{t:"Reinforcer",h:true},
+          {t:"Positive Reinforcement",h:true},{t:"Negative Reinforcement",h:true},
+          {t:"Positive Punishment",h:true},{t:"Negative Punishment",h:true},
+          {t:"Fixed-Ratio Schedule",h:true},{t:"Variable-Ratio Schedule",h:true},
+          {t:"Fixed-Interval Schedule",h:true},{t:"Variable-Interval Schedule",h:true},
+          {t:"Shaping",h:true},{t:"Latent Learning",h:true},{t:"Cognitive Map",h:true},
+          {t:"Insight",h:true},{t:"Intrinsic Motivation",h:true},{t:"Extrinsic Motivation",h:true},
+          {t:"Observational Learning",h:true},{t:"Modeling",h:true},{t:"Bandura",h:true},
+          {t:"Mirror Neurons",h:false},{t:"Bobo Doll Study",h:true}
+        ],
+        tip: "Variable-ratio schedules produce the highest response rates and are most resistant to extinction — this is the most tested reinforcement schedule fact!"
+      }
+    ]
+  },
+  {
+    num: "Unit 5",
+    title: "Cognitive Psychology",
+    chapters: [
+      {
+        num: "Chapter 6",
+        name: "Memory",
+        overview: "How we encode, store, and retrieve information. Types of memory, causes of forgetting, and the reconstructive nature of memory.",
+        keyPoints: [
+          "Three memory processes: encoding (getting information in), storage (retaining it), retrieval (getting it out).",
+          "Memory model: Sensory Memory → Short-Term/Working Memory (7±2 items) → Long-Term Memory (unlimited).",
+          "Long-term memory types — Explicit (declarative): episodic (personal events) + semantic (facts); Implicit: procedural + classically conditioned responses.",
+          "Encoding: automatic vs. effortful processing; levels of processing (semantic deepest); spacing effect; testing effect.",
+          "Retrieval cues: priming, context-dependent memory, state-dependent memory, mood-congruent memory.",
+          "Forgetting: encoding failure, storage decay, retrieval failure, proactive interference (old blocks new), retroactive interference (new blocks old), motivated forgetting.",
+          "Memory construction errors: misinformation effect (Loftus), source amnesia, flashbulb memory reliability issues."
+        ],
+        vocab: [
+          {t:"Encoding",h:true},{t:"Storage",h:true},{t:"Retrieval",h:true},
+          {t:"Sensory Memory",h:true},{t:"Working Memory",h:true},{t:"Long-Term Memory",h:true},
+          {t:"Explicit Memory",h:true},{t:"Implicit Memory",h:true},{t:"Episodic Memory",h:true},
+          {t:"Semantic Memory",h:true},{t:"Procedural Memory",h:false},{t:"Hippocampus",h:true},
+          {t:"Effortful Processing",h:true},{t:"Spacing Effect",h:true},{t:"Testing Effect",h:true},
+          {t:"Serial Position Effect",h:true},{t:"Primacy Effect",h:false},{t:"Recency Effect",h:false},
+          {t:"Priming",h:true},{t:"Context-Dependent Memory",h:true},{t:"State-Dependent Memory",h:true},
+          {t:"Mood-Congruent Memory",h:false},{t:"Recall",h:true},{t:"Recognition",h:true},
+          {t:"Proactive Interference",h:true},{t:"Retroactive Interference",h:true},
+          {t:"Repression",h:true},{t:"Misinformation Effect",h:true},{t:"Source Amnesia",h:true},
+          {t:"Flashbulb Memory",h:true},{t:"Anterograde Amnesia",h:true},{t:"Retrograde Amnesia",h:true}
+        ],
+        tip: "Proactive vs. retroactive interference: OLD info interfering with NEW = proactive; NEW info interfering with OLD = retroactive. Make a mnemonic!"
+      },
+      {
+        num: "Chapter 7",
+        name: "Thinking, Language, and Intelligence",
+        overview: "Problem-solving strategies, cognitive biases, language acquisition and structure, and major theories of intelligence.",
+        keyPoints: [
+          "Problem-solving: algorithms (systematic, guaranteed) vs. heuristics (mental shortcuts, faster but error-prone).",
+          "Cognitive obstacles: mental set, functional fixedness, confirmation bias, belief perseverance.",
+          "Cognitive biases: availability heuristic (ease of recall), representativeness heuristic (prototype matching), overconfidence, framing effect.",
+          "Language structure: phonemes (sounds) → morphemes (meaning units) → syntax (grammar rules).",
+          "Chomsky's universal grammar: humans are biologically prepared to learn language. Whorf's linguistic relativity: language shapes thought.",
+          "Language development: cooing → babbling (6 mo.) → one-word (12 mo.) → two-word (18–24 mo.) → telegraphic speech.",
+          "Intelligence theories: Spearman's g factor (general intelligence); Gardner's 8 multiple intelligences; Sternberg's triarchic theory (analytical, creative, practical).",
+          "IQ tests: Stanford-Binet, Wechsler (WAIS/WISC). Must be reliable, valid, and standardized. Normal distribution (mean=100, SD=15)."
+        ],
+        vocab: [
+          {t:"Concept",h:true},{t:"Prototype",h:true},{t:"Algorithm",h:true},{t:"Heuristic",h:true},
+          {t:"Insight",h:true},{t:"Confirmation Bias",h:true},{t:"Mental Set",h:true},
+          {t:"Functional Fixedness",h:true},{t:"Representativeness Heuristic",h:true},
+          {t:"Availability Heuristic",h:true},{t:"Overconfidence",h:false},{t:"Framing",h:true},
+          {t:"Belief Perseverance",h:false},{t:"Phoneme",h:true},{t:"Morpheme",h:true},
+          {t:"Universal Grammar",h:true},{t:"Linguistic Relativity",h:true},
+          {t:"General Intelligence (g)",h:true},{t:"Multiple Intelligences",h:true},
+          {t:"Triarchic Theory",h:true},{t:"Emotional Intelligence",h:false},
+          {t:"Stanford-Binet",h:true},{t:"Wechsler Scales",h:true},{t:"Reliability",h:true},
+          {t:"Validity",h:true},{t:"Standardization",h:true},{t:"Normal Curve",h:true},
+          {t:"Flynn Effect",h:true},{t:"Stereotype Threat",h:true}
+        ],
+        tip: "Know all three intelligence theories and be able to compare them. The Flynn Effect (rising IQ scores over generations) is a popular FRQ topic."
+      }
+    ]
+  },
+  {
+    num: "Unit 6",
+    title: "Developmental Psychology",
+    chapters: [
+      {
+        num: "Chapter 8",
+        name: "Lifespan Development",
+        overview: "Physical, cognitive, and social-emotional development from conception through death, including major theorists and their stages.",
+        keyPoints: [
+          "Prenatal: germinal (fertilization → 2 weeks), embryonic (3–8 weeks, organ formation), fetal (9 weeks → birth). Teratogens cause birth defects.",
+          "Piaget's 4 cognitive stages: Sensorimotor (0–2, object permanence) → Preoperational (2–7, egocentrism, no conservation) → Concrete Operational (7–11, conservation, logical thinking) → Formal Operational (12+, abstract reasoning).",
+          "Vygotsky: zone of proximal development (ZPD), scaffolding, importance of social/cultural context in learning.",
+          "Attachment (Harlow & Ainsworth): contact comfort matters more than feeding. Strange situation → secure, anxious-ambivalent, avoidant attachment styles.",
+          "Erikson's 8 psychosocial stages from Trust vs. Mistrust (infancy) through Integrity vs. Despair (late adulthood).",
+          "Adolescence: puberty, formal operational thinking, Kohlberg's moral development (preconventional → conventional → postconventional).",
+          "Adulthood: fluid intelligence declines; crystallized intelligence remains stable. Alzheimer's disease affects declarative memory."
+        ],
+        vocab: [
+          {t:"Teratogen",h:true},{t:"Fetal Alcohol Syndrome",h:true},
+          {t:"Schema",h:true},{t:"Assimilation",h:true},{t:"Accommodation",h:true},
+          {t:"Sensorimotor Stage",h:true},{t:"Object Permanence",h:true},
+          {t:"Preoperational Stage",h:true},{t:"Egocentrism",h:true},{t:"Theory of Mind",h:true},
+          {t:"Concrete Operational Stage",h:true},{t:"Conservation",h:true},
+          {t:"Formal Operational Stage",h:true},{t:"Zone of Proximal Development",h:true},
+          {t:"Scaffolding",h:true},{t:"Attachment",h:true},{t:"Critical Period",h:true},
+          {t:"Secure Attachment",h:true},{t:"Anxious Attachment",h:false},{t:"Avoidant Attachment",h:false},
+          {t:"Erikson's Psychosocial Stages",h:true},{t:"Trust vs. Mistrust",h:true},
+          {t:"Autonomy vs. Shame",h:false},{t:"Initiative vs. Guilt",h:false},
+          {t:"Industry vs. Inferiority",h:false},{t:"Identity vs. Role Confusion",h:true},
+          {t:"Intimacy vs. Isolation",h:false},{t:"Generativity vs. Stagnation",h:false},
+          {t:"Integrity vs. Despair",h:false},{t:"Preconventional Morality",h:true},
+          {t:"Conventional Morality",h:true},{t:"Postconventional Morality",h:true},
+          {t:"Alzheimer's Disease",h:true},{t:"Fluid Intelligence",h:true},{t:"Crystallized Intelligence",h:true}
+        ],
+        tip: "Piaget's stages AND Erikson's stages are both frequently tested — memorize them in order with approximate ages. Know what distinguishes each stage."
+      }
+    ]
+  },
+  {
+    num: "Unit 7",
+    title: "Motivation, Emotion, and Personality",
+    chapters: [
+      {
+        num: "Chapter 9",
+        name: "Motivation and Emotion",
+        overview: "Major theories of motivation, biological drives (hunger, sex), the nature of emotion, and how emotions are expressed and regulated.",
+        keyPoints: [
+          "Motivation theories: instinct theory, drive-reduction theory (homeostasis), arousal theory (optimal arousal level), Maslow's hierarchy of needs.",
+          "Maslow: physiological → safety → belonging/love → esteem → self-actualization (must satisfy lower before higher).",
+          "Hunger regulation: blood glucose levels, lateral hypothalamus (hunger on), ventromedial hypothalamus (hunger off), ghrelin (hunger hormone), leptin (satiety hormone). Set-point theory.",
+          "Three emotion theories: James-Lange (body response → conscious emotion), Cannon-Bard (body + emotion simultaneously), Schachter's two-factor (arousal + cognitive label = emotion).",
+          "Facial feedback hypothesis: facial expressions can influence emotional experience.",
+          "Yerkes-Dodson Law: performance is best at moderate arousal levels (inverted U)."
+        ],
+        vocab: [
+          {t:"Motivation",h:true},{t:"Drive-Reduction Theory",h:true},{t:"Homeostasis",h:true},
+          {t:"Arousal Theory",h:true},{t:"Yerkes-Dodson Law",h:true},{t:"Hierarchy of Needs",h:true},
+          {t:"Self-Actualization",h:true},{t:"Glucose",h:false},{t:"Hypothalamus",h:true},
+          {t:"Ghrelin",h:true},{t:"Leptin",h:true},{t:"Set Point",h:true},
+          {t:"Anorexia Nervosa",h:true},{t:"Bulimia Nervosa",h:true},{t:"Binge-Eating Disorder",h:false},
+          {t:"Emotion",h:true},{t:"James-Lange Theory",h:true},{t:"Cannon-Bard Theory",h:true},
+          {t:"Schachter's Two-Factor Theory",h:true},{t:"Spillover Effect",h:false},
+          {t:"Polygraph",h:true},{t:"Facial Feedback Effect",h:true},{t:"Catharsis",h:true}
+        ],
+        tip: "Master all three emotion theories — know the sequence of events for each (stimulus → ? → ?). Two-factor theory is most tested in modern contexts."
+      },
+      {
+        num: "Chapter 10",
+        name: "Personality",
+        overview: "Psychoanalytic, humanistic, trait-based, and social-cognitive theories of personality, plus assessment methods.",
+        keyPoints: [
+          "Freud's psychoanalytic theory: id (pleasure principle), ego (reality principle), superego (morality). Unconscious conflicts drive behavior.",
+          "Freud's defense mechanisms: repression, projection, rationalization, reaction formation, displacement, regression, sublimation.",
+          "Freud's psychosexual stages: oral, anal, phallic (Oedipus/Electra complex), latency, genital. Fixation if unresolved.",
+          "Neo-Freudians: Adler (inferiority complex), Jung (collective unconscious, archetypes), Horney (basic anxiety, need for security).",
+          "Humanistic theories: Rogers (self-concept, unconditional positive regard, congruence), Maslow (self-actualization).",
+          "Trait theory: Big Five (OCEAN) — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism. Most research-supported model.",
+          "Social-cognitive: Bandura (reciprocal determinism — behavior, person, environment interact), Rotter (locus of control), Bandura (self-efficacy).",
+          "Assessment: MMPI (objective), Rorschach inkblot (projective), TAT (projective), Myers-Briggs (trait)."
+        ],
+        vocab: [
+          {t:"Personality",h:true},{t:"Id",h:true},{t:"Ego",h:true},{t:"Superego",h:true},
+          {t:"Unconscious",h:true},{t:"Free Association",h:true},
+          {t:"Psychosexual Stages",h:true},{t:"Oedipus Complex",h:true},{t:"Fixation",h:true},
+          {t:"Defense Mechanisms",h:true},{t:"Repression",h:true},{t:"Projection",h:true},
+          {t:"Rationalization",h:true},{t:"Reaction Formation",h:true},{t:"Displacement",h:true},
+          {t:"Sublimation",h:true},{t:"Regression",h:true},
+          {t:"Collective Unconscious",h:true},{t:"Archetypes",h:false},{t:"Inferiority Complex",h:false},
+          {t:"Self-Concept",h:true},{t:"Unconditional Positive Regard",h:true},
+          {t:"Big Five (OCEAN)",h:true},{t:"Openness",h:false},{t:"Conscientiousness",h:false},
+          {t:"Extraversion",h:false},{t:"Agreeableness",h:false},{t:"Neuroticism",h:false},
+          {t:"Reciprocal Determinism",h:true},{t:"Locus of Control",h:true},{t:"Self-Efficacy",h:true},
+          {t:"MMPI",h:true},{t:"Rorschach Inkblot Test",h:true},{t:"TAT",h:true}
+        ],
+        tip: "Know Freud's defense mechanisms by name AND example — the AP exam loves scenario-based questions asking you to identify which mechanism is being used."
+      }
+    ]
+  },
+  {
+    num: "Unit 8",
+    title: "Clinical Psychology",
+    chapters: [
+      {
+        num: "Chapter 12",
+        name: "Psychological Disorders",
+        overview: "Classification, causes, and characteristics of major psychological disorders using DSM-5 criteria.",
+        keyPoints: [
+          "Criteria for psychological disorder: distress, dysfunction, deviance, danger (the 4 D's).",
+          "Anxiety disorders: GAD (excessive chronic worry), panic disorder (unexpected panic attacks), specific phobias, social anxiety disorder, OCD (obsessions + compulsions), PTSD.",
+          "Mood disorders: Major Depressive Disorder (5+ symptoms ≥2 weeks), Persistent Depressive Disorder, Bipolar I (full mania) vs. Bipolar II (hypomania + depression).",
+          "Schizophrenia: positive symptoms (hallucinations, delusions, disorganized thinking — things added) vs. negative symptoms (flat affect, alogia, avolition — things taken away). Dopamine hypothesis.",
+          "Dissociative disorders: DID (multiple identity states), dissociative amnesia.",
+          "Personality disorders — Cluster A (odd/eccentric), Cluster B (dramatic: antisocial, borderline, narcissistic, histrionic), Cluster C (anxious/fearful).",
+          "Neurodevelopmental: ADHD, autism spectrum disorder. Eating disorders: anorexia nervosa, bulimia nervosa."
+        ],
+        vocab: [
+          {t:"DSM-5",h:true},{t:"Generalized Anxiety Disorder",h:true},{t:"Panic Disorder",h:true},
+          {t:"Specific Phobia",h:true},{t:"Social Anxiety Disorder",h:true},
+          {t:"OCD",h:true},{t:"PTSD",h:true},{t:"Major Depressive Disorder",h:true},
+          {t:"Learned Helplessness",h:true},{t:"Bipolar Disorder",h:true},{t:"Mania",h:true},
+          {t:"Schizophrenia",h:true},{t:"Positive Symptoms",h:true},{t:"Negative Symptoms",h:true},
+          {t:"Hallucinations",h:true},{t:"Delusions",h:true},{t:"Disorganized Thinking",h:false},
+          {t:"Dopamine Hypothesis",h:true},{t:"Flat Affect",h:false},
+          {t:"Dissociative Identity Disorder",h:true},{t:"Dissociative Amnesia",h:true},
+          {t:"Personality Disorder",h:true},{t:"Antisocial Personality Disorder",h:true},
+          {t:"Borderline Personality Disorder",h:false},{t:"ADHD",h:true},{t:"Autism Spectrum Disorder",h:true},
+          {t:"Anorexia Nervosa",h:true},{t:"Bulimia Nervosa",h:true}
+        ],
+        tip: "Schizophrenia positive vs. negative symptoms is a key distinction. Positive = ADDED symptoms (hallucinations, delusions). Negative = REMOVED functioning (flat affect, withdrawal)."
+      },
+      {
+        num: "Chapter 13",
+        name: "Treatment of Psychological Disorders",
+        overview: "Psychotherapy approaches, biomedical therapies, and evaluation of treatment effectiveness.",
+        keyPoints: [
+          "Psychoanalytic therapies: free association, dream analysis, resistance, transference, interpretation of the unconscious.",
+          "Humanistic therapy: Rogers' client-centered therapy — empathy, unconditional positive regard, genuineness, active listening.",
+          "Behavioral therapies: systematic desensitization (fear hierarchy + relaxation), exposure therapy, aversive conditioning, token economies, behavior modification.",
+          "Cognitive therapies: Beck's cognitive therapy (identifying automatic negative thoughts), Ellis's REBT (disputing irrational beliefs).",
+          "CBT (Cognitive Behavioral Therapy): combines cognitive and behavioral techniques — most empirically supported for most disorders.",
+          "Biomedical: antidepressants (SSRIs block serotonin reuptake), antipsychotics (block dopamine), mood stabilizers (lithium for bipolar), anxiolytics (benzodiazepines).",
+          "ECT (electroconvulsive therapy) for severe treatment-resistant depression; TMS (transcranial magnetic stimulation); lobotomy (historical)."
+        ],
+        vocab: [
+          {t:"Psychotherapy",h:true},{t:"Eclectic Approach",h:false},
+          {t:"Psychoanalysis",h:true},{t:"Transference",h:true},{t:"Resistance",h:false},
+          {t:"Client-Centered Therapy",h:true},{t:"Unconditional Positive Regard",h:true},
+          {t:"Active Listening",h:false},{t:"Systematic Desensitization",h:true},
+          {t:"Exposure Therapy",h:true},{t:"Aversive Conditioning",h:true},
+          {t:"Token Economy",h:true},{t:"Cognitive Therapy",h:true},{t:"CBT",h:true},
+          {t:"REBT",h:true},{t:"SSRIs",h:true},{t:"Antidepressants",h:true},
+          {t:"Antipsychotics",h:true},{t:"Mood Stabilizers",h:true},{t:"Lithium",h:true},
+          {t:"Anxiolytics",h:false},{t:"ECT",h:true},{t:"TMS",h:false}
+        ],
+        tip: "Know all major therapy types, their techniques, and which disorders they target. CBT is the most tested modern therapy — be ready to apply it in FRQs."
+      }
+    ]
+  },
+  {
+    num: "Unit 9",
+    title: "Social Psychology",
+    chapters: [
+      {
+        num: "Chapter 11",
+        name: "Social Psychology",
+        overview: "How people think about, influence, and relate to each other — social cognition, conformity, obedience, group dynamics, prejudice, attraction, and altruism.",
+        keyPoints: [
+          "Attribution theory: explaining behavior via dispositional (internal) or situational (external) causes. Fundamental Attribution Error = overestimating dispositional causes for others' behavior.",
+          "Self-serving bias: attributing successes to internal factors and failures to external factors.",
+          "Attitudes → behavior: cognitive dissonance (Festinger), foot-in-the-door technique, door-in-the-face technique.",
+          "Conformity (Asch): participants conformed ~37% of the time on line-length tasks. Normative (fit in) vs. informational (be correct) social influence.",
+          "Obedience (Milgram): 65% of participants delivered maximum shock to authority figure. Situational factors (uniform, proximity, prestige) dramatically affect obedience.",
+          "Group influence: social facilitation (better on easy tasks with audience), social loafing (less effort in groups), deindividuation (lose sense of self in crowd), groupthink (pressure for unanimity impairs decisions), group polarization (group decisions become more extreme).",
+          "Prejudice: stereotypes (cognitive), prejudice (affective), discrimination (behavioral). In-group bias, scapegoat theory, just-world phenomenon.",
+          "Altruism & bystander effect: diffusion of responsibility reduces helping in groups; pluralistic ignorance."
+        ],
+        vocab: [
+          {t:"Attribution Theory",h:true},{t:"Dispositional Attribution",h:true},{t:"Situational Attribution",h:true},
+          {t:"Fundamental Attribution Error",h:true},{t:"Self-Serving Bias",h:true},
+          {t:"Cognitive Dissonance",h:true},{t:"Foot-in-the-Door",h:true},{t:"Door-in-the-Face",h:false},
+          {t:"Central Route Persuasion",h:false},{t:"Peripheral Route",h:false},
+          {t:"Conformity",h:true},{t:"Normative Social Influence",h:true},{t:"Informational Social Influence",h:true},
+          {t:"Asch's Conformity Study",h:true},{t:"Obedience",h:true},{t:"Milgram Study",h:true},
+          {t:"Social Facilitation",h:true},{t:"Social Loafing",h:true},{t:"Deindividuation",h:true},
+          {t:"Groupthink",h:true},{t:"Group Polarization",h:true},
+          {t:"Prejudice",h:true},{t:"Stereotype",h:true},{t:"Discrimination",h:true},
+          {t:"In-Group Bias",h:true},{t:"Scapegoat Theory",h:true},{t:"Just-World Phenomenon",h:false},
+          {t:"Bystander Effect",h:true},{t:"Diffusion of Responsibility",h:true},
+          {t:"Altruism",h:true},{t:"Mere Exposure Effect",h:true},{t:"Aggression",h:true}
+        ],
+        tip: "The Milgram and Asch studies are major AP topics — know procedures, results (exact percentages), and what they demonstrate about situational vs. dispositional influences."
+      }
+    ]
+  }
+];
+
+function buildNav() {
+  const nav = document.getElementById('unit-nav');
+  nav.innerHTML = '<button class="unit-btn active" onclick="showAll(this)">All Units</button>';
+  units.forEach((u, i) => {
+    nav.innerHTML += `<button class="unit-btn" onclick="jumpToUnit(${i}, this)">${u.num}</button>`;
+  });
+}
+
+function showAll(btn) {
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-section').forEach(s => s.style.display = '');
+  document.getElementById('search-results-display').innerHTML = '';
+  document.getElementById('search-result').textContent = '';
+  document.getElementById('vocab-search').value = '';
+}
+
+function jumpToUnit(i, btn) {
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-section').forEach((s, idx) => {
+    s.style.display = idx === i ? '' : 'none';
+    if (idx === i) {
+      const hdr = s.querySelector('.unit-header');
+      if (!hdr.classList.contains('open')) toggleUnit(hdr);
+      setTimeout(() => s.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  });
+  document.getElementById('search-results-display').innerHTML = '';
+  document.getElementById('search-result').textContent = '';
+  document.getElementById('vocab-search').value = '';
+}
+
+function toggleUnit(hdr) {
+  hdr.classList.toggle('open');
+  const body = hdr.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function filterVocab(q) {
+  const resultEl = document.getElementById('search-result');
+  const displayEl = document.getElementById('search-results-display');
+  q = q.toLowerCase().trim();
+
+  if (!q) {
+    resultEl.textContent = '';
+    displayEl.innerHTML = '';
+    document.querySelectorAll('.unit-section').forEach(s => s.style.display = '');
+    document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.unit-btn').classList.add('active');
+    return;
+  }
+
+  let found = [];
+  units.forEach(u => {
+    u.chapters.forEach(ch => {
+      ch.vocab.forEach(v => {
+        if (v.t.toLowerCase().includes(q)) found.push({term: v.t, high: v.h, unit: u.num, ch: ch.name});
+      });
+    });
+  });
+
+  document.querySelectorAll('.unit-section').forEach(s => s.style.display = 'none');
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+
+  if (found.length === 0) {
+    resultEl.textContent = 'No matching terms found.';
+    displayEl.innerHTML = '';
+    return;
+  }
+
+  resultEl.textContent = `${found.length} result${found.length !== 1 ? 's' : ''} found`;
+  displayEl.innerHTML = found.map(f => `
+    <div class="sr-item">
+      <span class="vocab-pill ${f.high ? 'high' : ''}">${f.term}</span>
+      <span class="sr-meta">${f.unit} &mdash; ${f.ch}</span>
+      ${f.high ? '<span class="sr-hi">HIGH PRIORITY</span>' : ''}
+    </div>`).join('');
+}
+
+function buildUnits() {
+  const container = document.getElementById('units-container');
+  container.innerHTML = '';
+  units.forEach((u, i) => {
+    const sec = document.createElement('div');
+    sec.className = 'unit-section';
+    sec.id = 'unit-' + i;
+    sec.innerHTML = `
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <div>
+          <div class="unit-num">${u.num}</div>
+          <div class="unit-title">${u.title}</div>
+        </div>
+        <div class="unit-chevron">&#9660;</div>
+      </div>
+      <div class="unit-body">
+        ${u.chapters.map(ch => `
+          <div class="chapter">
+            <div class="ch-label">${ch.num}</div>
+            <div class="ch-name">${ch.name}</div>
+            <div class="content-block">
+              <div class="content-label">Overview</div>
+              <div class="content-text">${ch.overview}</div>
+            </div>
+            <div class="content-block">
+              <div class="content-label">Key Concepts</div>
+              ${ch.keyPoints.map(p => `<div class="key-point">${p}</div>`).join('')}
+            </div>
+            <div class="content-block">
+              <div class="content-label">Vocabulary</div>
+              <div class="vocab-grid">
+                ${ch.vocab.map(v => `<span class="vocab-pill ${v.h ? 'high' : ''}">${v.t}</span>`).join('')}
+              </div>
+            </div>
+            ${ch.tip ? `<div class="tip-box"><strong>&#x2714; AP Exam Tip:</strong> ${ch.tip}</div>` : ''}
+          </div>`).join('')}
+      </div>`;
+    container.appendChild(sec);
+  });
+}
+
+buildUnits();
+buildNav();
+</script>
+</body>
+</html>
