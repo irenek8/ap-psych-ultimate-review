@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>AP Psychology Ultimate Study Guide</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-primary:#ffffff;--bg-secondary:#f5f4f0;--bg-tertiary:#eeede8;
+  --text-primary:#1a1a18;--text-secondary:#5a5a56;--text-tertiary:#9a9994;
+  --border-light:rgba(0,0,0,0.1);--border-mid:rgba(0,0,0,0.18);
+  --purple-50:#EEEDFE;--purple-100:#CECBF6;--purple-200:#AFA9EC;
+  --purple-400:#7F77DD;--purple-600:#534AB7;--purple-800:#3C3489;--purple-900:#26215C;
+  --amber-50:#FAEEDA;--amber-200:#FAC775;--amber-600:#BA7517;--amber-800:#633806;
+  --coral-50:#FAECE7;--coral-200:#F0997B;--coral-600:#993C1D;--coral-800:#712B13;
+  --teal-50:#E1F5EE;--teal-200:#9FE1CB;--teal-600:#0F6E56;--teal-900:#04342C;
+  --green-50:#EAF3DE;--green-200:#C0DD97;--green-600:#3B6D11;--green-900:#173404;
+  --red-50:#FCEBEB;--red-200:#F09595;--red-600:#A32D2D;--red-900:#501313;
+  --radius-md:8px;--radius-lg:12px;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg-primary:#1e1e1c;--bg-secondary:#272725;--bg-tertiary:#2e2e2b;
+  --text-primary:#f0efe8;--text-secondary:#a8a79f;--text-tertiary:#6a6960;
+  --border-light:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.14);
+  --purple-50:#26215C;--purple-100:#3C3489;--purple-200:#534AB7;
+  --purple-400:#7F77DD;--purple-600:#AFA9EC;--purple-800:#CECBF6;--purple-900:#EEEDFE;
+  --amber-50:#412402;--amber-200:#854F0B;--amber-600:#FAC775;--amber-800:#FAEEDA;
+  --coral-50:#4A1B0C;--coral-200:#993C1D;--coral-600:#F0997B;--coral-800:#FAECE7;
+  --teal-50:#04342C;--teal-200:#085041;--teal-600:#5DCAA5;--teal-900:#E1F5EE;
+  --green-50:#173404;--green-200:#3B6D11;--green-600:#97C459;--green-900:#EAF3DE;
+  --red-50:#501313;--red-200:#A32D2D;--red-600:#F09595;--red-900:#FCEBEB;
+}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg-tertiary);color:var(--text-primary);min-height:100vh;line-height:1.6}
+.page-wrap{max-width:820px;margin:0 auto;padding:2rem 1rem 4rem}
+
+/* Header */
+.sg-header{text-align:center;background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:2.5rem 2rem 2rem;margin-bottom:1.5rem}
+.sg-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--purple-50);color:var(--purple-800);padding:5px 14px;border-radius:20px;margin-bottom:1rem}
+.sg-title{font-size:28px;font-weight:700;color:var(--text-primary);margin-bottom:.4rem}
+.sg-subtitle{font-size:14px;color:var(--text-secondary)}
+
+/* Exam bar */
+.exam-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.exam-card{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem;text-align:center}
+.exam-card .ec-val{font-size:24px;font-weight:700;color:var(--purple-600)}
+.exam-card .ec-lbl{font-size:12px;color:var(--text-secondary);margin-top:3px}
+
+/* Search */
+.search-wrap{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.5rem}
+.search-wrap input{width:100%;font-size:15px;border:0.5px solid var(--border-mid);border-radius:var(--radius-md);padding:10px 14px;background:var(--bg-secondary);color:var(--text-primary);outline:none;transition:border-color .15s}
+.search-wrap input:focus{border-color:var(--purple-400)}
+.search-wrap input::placeholder{color:var(--text-tertiary)}
+.search-result{font-size:13px;color:var(--text-secondary);margin-top:.5rem}
+#search-results-display .sr-item{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0;border-bottom:0.5px solid var(--border-light)}
+#search-results-display .sr-item:last-child{border-bottom:none}
+.sr-meta{font-size:12px;color:var(--text-secondary)}
+.sr-hi{font-size:11px;color:var(--coral-600);font-weight:600}
+
+/* Nav */
+.unit-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.unit-btn{font-size:12px;font-weight:500;border:0.5px solid var(--border-mid);background:var(--bg-primary);color:var(--text-secondary);padding:6px 12px;border-radius:20px;cursor:pointer;transition:all .15s}
+.unit-btn:hover{background:var(--purple-50);color:var(--purple-800);border-color:var(--purple-200)}
+.unit-btn.active{background:var(--purple-600);color:#fff;border-color:var(--purple-600)}
+
+/* Legend */
+.legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem 1rem;margin-bottom:1.25rem;font-size:13px;color:var(--text-secondary)}
+.legend-item{display:flex;align-items:center;gap:6px}
+
+/* Unit sections */
+.unit-section{background:var(--bg-primary);border:0.5px solid var(--border-light);border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden}
+.unit-header{background:var(--purple-50);padding:1rem 1.5rem;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;user-select:none;transition:background .15s}
+.unit-header:hover{background:var(--purple-100)}
+.unit-header-left{flex:1;min-width:0}
+.unit-num{font-size:11px;font-weight:600;color:var(--purple-600);text-transform:uppercase;letter-spacing:.07em}
+.unit-title{font-size:16px;font-weight:700;color:var(--purple-900);margin-top:3px;margin-bottom:6px}
+.unit-preview{font-size:13px;color:var(--purple-800);line-height:1.55;opacity:.85;max-height:0;overflow:hidden;transition:max-height .3s ease,opacity .3s}
+.unit-header.open .unit-preview{max-height:200px;opacity:1}
+.unit-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.unit-chevron{font-size:18px;color:var(--purple-600);transition:transform .25s;line-height:1}
+.unit-header.open .unit-chevron{transform:rotate(180deg)}
+.quiz-btn{font-size:12px;font-weight:600;background:var(--purple-600);color:#fff;border:none;border-radius:20px;padding:5px 14px;cursor:pointer;transition:background .15s;white-space:nowrap}
+.quiz-btn:hover{background:var(--purple-800)}
+
+.unit-body{display:none;padding:0 1.5rem 1.5rem}
+.unit-body.open{display:block}
+
+/* Chapters */
+.chapter{padding-top:1.25rem;margin-top:1.25rem;border-top:0.5px solid var(--border-light)}
+.chapter:first-child{border-top:none;margin-top:.5rem;padding-top:.5rem}
+.ch-label{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.ch-name{font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:.9rem}
+.content-block{margin-bottom:1rem}
+.content-label{font-size:11px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.content-text{font-size:14px;color:var(--text-secondary);line-height:1.7}
+.key-point{padding:5px 0 5px 12px;border-left:2.5px solid var(--purple-200);margin-bottom:6px;font-size:14px;color:var(--text-secondary);line-height:1.65}
+
+/* Vocab pills — clickable */
+.vocab-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:.5rem}
+.vocab-pill{display:inline-flex;align-items:center;background:var(--amber-50);color:var(--amber-800);border:0.5px solid var(--amber-200);border-radius:20px;font-size:12px;font-weight:500;padding:4px 11px;cursor:pointer;transition:all .15s}
+.vocab-pill:hover{background:var(--amber-200);color:var(--amber-800)}
+.vocab-pill.high{background:var(--coral-50);color:var(--coral-800);border-color:var(--coral-200)}
+.vocab-pill.high:hover{background:var(--coral-200);color:var(--coral-800)}
+
+/* Tip box */
+.tip-box{background:var(--teal-50);border:0.5px solid var(--teal-200);border-radius:var(--radius-md);padding:.75rem 1rem;font-size:13px;color:var(--teal-600);margin-top:1rem;line-height:1.6}
+.tip-box strong{color:var(--teal-900)}
+
+/* ── VOCAB MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.visible{opacity:1;pointer-events:all}
+.modal-box{background:var(--bg-primary);border:0.5px solid var(--border-mid);border-radius:var(--radius-lg);padding:2rem;max-width:480px;width:100%;position:relative;transform:translateY(12px);transition:transform .2s;max-height:80vh;overflow-y:auto}
+.modal-overlay.visible .modal-box{transform:translateY(0)}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-tertiary);line-height:1}
+.modal-close:hover{color:var(--text-primary)}
+.modal-term{font-size:22px;font-weight:700;color:var(--text-primary);margin-bottom:.25rem}
+.modal-unit-tag{font-size:11px;font-weight:600;color:var(--purple-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem;display:block}
+.modal-def{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem}
+.modal-example{background:var(--purple-50);border-left:3px solid var(--purple-400);padding:.75rem 1rem;border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:13px;color:var(--purple-900);line-height:1.6}
+.modal-example strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--purple-600);margin-bottom:4px}
+.modal-nav{display:flex;justify-content:space-between;margin-top:1.25rem;gap:8px}
+.modal-nav button{flex:1;font-size:13px;font-weight:500;border:0.5px solid var(--border-mid);background:var(--bg-secondary);color:var(--text-secondary);padding:8px;border-radius:var(--radius-md);cursor:pointer;transition:all .15s}
+.modal-nav button:hover{background:var(--purple-50);color:var(--purple-800);border-color:var(--purple-200)}
+
+/* ── QUIZ MODAL ── */
+.quiz-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .2s}
+.quiz-overlay.visible{opacity:1;pointer-events:all}
+.quiz-box{background:var(--bg-primary);border:0.5px solid var(--border-mid);border-radius:var(--radius-lg);padding:2rem;max-width:560px;width:100%;position:relative;transform:translateY(12px);transition:transform .2s;max-height:90vh;overflow-y:auto}
+.quiz-overlay.visible .quiz-box{transform:translateY(0)}
+.quiz-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-tertiary)}
+.quiz-close:hover{color:var(--text-primary)}
+.quiz-header{margin-bottom:1.5rem}
+.quiz-unit-label{font-size:11px;font-weight:600;color:var(--purple-600);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.quiz-progress-bar{width:100%;height:6px;background:var(--bg-secondary);border-radius:3px;margin:8px 0}
+.quiz-progress-fill{height:6px;background:var(--purple-400);border-radius:3px;transition:width .3s}
+.quiz-counter{font-size:12px;color:var(--text-tertiary);margin-top:4px}
+.quiz-question{font-size:13px;font-weight:600;color:var(--purple-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+.quiz-term{font-size:24px;font-weight:700;color:var(--text-primary);margin-bottom:1.5rem;line-height:1.3}
+.quiz-choices{display:grid;gap:10px;margin-bottom:1.25rem}
+.quiz-choice{width:100%;text-align:left;font-size:14px;font-weight:500;background:var(--bg-secondary);border:1.5px solid var(--border-light);color:var(--text-primary);padding:12px 16px;border-radius:var(--radius-md);cursor:pointer;transition:all .15s;line-height:1.5}
+.quiz-choice:hover:not(:disabled){background:var(--purple-50);border-color:var(--purple-200);color:var(--purple-900)}
+.quiz-choice.correct{background:var(--green-50);border-color:var(--green-200);color:var(--green-600);cursor:default}
+.quiz-choice.wrong{background:var(--red-50);border-color:var(--red-200);color:var(--red-600);cursor:default}
+.quiz-choice:disabled{cursor:default}
+.quiz-feedback{font-size:14px;padding:.75rem 1rem;border-radius:var(--radius-md);margin-bottom:1rem;line-height:1.6;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:var(--green-50);color:var(--green-600);border:0.5px solid var(--green-200)}
+.quiz-feedback.wrong{background:var(--red-50);color:var(--red-600);border:0.5px solid var(--red-200)}
+.quiz-next-btn{width:100%;font-size:14px;font-weight:600;background:var(--purple-600);color:#fff;border:none;border-radius:var(--radius-md);padding:12px;cursor:pointer;transition:background .15s;display:none}
+.quiz-next-btn.show{display:block}
+.quiz-next-btn:hover{background:var(--purple-800)}
+.quiz-results{text-align:center;padding:1rem 0}
+.quiz-score-big{font-size:52px;font-weight:700;color:var(--purple-600);line-height:1}
+.quiz-score-label{font-size:16px;color:var(--text-secondary);margin:.5rem 0 1.5rem}
+.quiz-score-msg{font-size:15px;color:var(--text-primary);margin-bottom:1.5rem;line-height:1.6}
+.quiz-result-actions{display:flex;gap:10px}
+.quiz-result-actions button{flex:1;font-size:14px;font-weight:600;padding:11px;border-radius:var(--radius-md);cursor:pointer;transition:all .15s}
+.quiz-retry-btn{background:var(--purple-600);color:#fff;border:none}
+.quiz-retry-btn:hover{background:var(--purple-800)}
+.quiz-done-btn{background:var(--bg-secondary);color:var(--text-primary);border:0.5px solid var(--border-mid)}
+.quiz-done-btn:hover{background:var(--bg-tertiary)}
+.quiz-missed{text-align:left;margin-top:1.25rem;border-top:0.5px solid var(--border-light);padding-top:1.25rem}
+.quiz-missed h4{font-size:13px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+.missed-item{margin-bottom:.75rem;padding-bottom:.75rem;border-bottom:0.5px solid var(--border-light);font-size:13px}
+.missed-item:last-child{border-bottom:none}
+.missed-term{font-weight:700;color:var(--red-600);margin-bottom:3px}
+.missed-def{color:var(--text-secondary);line-height:1.5}
+
+.sg-footer{text-align:center;margin-top:2.5rem;font-size:13px;color:var(--text-tertiary)}
+@media(max-width:520px){.exam-bar{grid-template-columns:repeat(3,1fr)}.sg-title{font-size:22px}.page-wrap{padding:1rem .75rem 3rem}}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="sg-header">
+    <div class="sg-badge">AP Psychology</div>
+    <div class="sg-title">Ultimate Study Guide</div>
+    <div class="sg-subtitle">Myers' Psychology for the AP Course, 4th Edition &mdash; All 9 Units</div>
+  </div>
+
+  <div class="exam-bar">
+    <div class="exam-card"><div class="ec-val">100</div><div class="ec-lbl">Multiple Choice Qs</div></div>
+    <div class="exam-card"><div class="ec-val">2</div><div class="ec-lbl">Free Response Qs</div></div>
+    <div class="exam-card"><div class="ec-val">120 min</div><div class="ec-lbl">Total Exam Time</div></div>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="vocab-search" placeholder="Search vocabulary terms across all units..." oninput="filterVocab(this.value)"/>
+    <div class="search-result" id="search-result"></div>
+    <div id="search-results-display"></div>
+  </div>
+
+  <div class="unit-nav" id="unit-nav"></div>
+  <div class="legend">
+    <strong style="color:var(--text-primary)">Legend:</strong>
+    <div class="legend-item"><span class="vocab-pill">Term</span> Click for definition</div>
+    <div class="legend-item"><span class="vocab-pill high">Term</span> High-priority AP term</div>
+  </div>
+  <div id="units-container"></div>
+  <div class="sg-footer">AP Psychology Study Guide &bull; Based on Myers' Psychology for the AP Course, 4th Edition</div>
+</div>
+
+<!-- Vocab Modal -->
+<div class="modal-overlay" id="vocab-modal" onclick="closeVocabModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeVocabModalBtn()">&#10005;</button>
+    <div class="modal-term" id="modal-term"></div>
+    <span class="modal-unit-tag" id="modal-unit-tag"></span>
+    <div class="modal-def" id="modal-def"></div>
+    <div class="modal-example" id="modal-example-wrap">
+      <strong>AP Example / Context</strong>
+      <span id="modal-example"></span>
+    </div>
+    <div class="modal-nav">
+      <button onclick="navModal(-1)">&#8592; Previous</button>
+      <button onclick="navModal(1)">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz Modal -->
+<div class="quiz-overlay" id="quiz-overlay" onclick="closeQuizModal(event)">
+  <div class="quiz-box">
+    <button class="quiz-close" onclick="closeQuizModalBtn()">&#10005;</button>
+    <div id="quiz-content"></div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────
+const DEFS = {
+  "Psychology":"The scientific study of behavior and mental processes.",
+  "Empiricism":"The view that knowledge originates in experience and that science should rely on observation and experimentation.",
+  "Structuralism":"Early psychology school that used introspection to explore the elemental structure of the mind (Wundt, Titchener).",
+  "Functionalism":"Early psychology school focused on how mental processes help organisms adapt to their environment (William James).",
+  "Behaviorism":"The view that psychology should be an objective science studying observable behavior without reference to mental processes.",
+  "Psychoanalysis":"Freud's theory of personality and therapeutic technique; explores the role of unconscious conflicts in behavior.",
+  "Humanism":"A perspective emphasizing human growth potential, free will, and the importance of self-concept.",
+  "Cognitive Neuroscience":"An interdisciplinary field studying the brain activity linked with cognition, including perception, thinking, memory, and language.",
+  "Hypothesis":"A testable prediction, often implied by a theory.",
+  "Theory":"An explanation using principles that organize observations and predict behaviors or events.",
+  "Operational Definition":"A statement of the exact procedures used to define research variables.",
+  "Replication":"Repeating a study to see whether the basic finding extends to other participants and circumstances.",
+  "Case Study":"An observation technique in which one person or group is studied in depth.",
+  "Survey":"A technique for ascertaining the self-reported attitudes or behaviors of a group through questioning.",
+  "Naturalistic Observation":"Observing and recording behavior in naturally occurring situations without manipulation.",
+  "Random Sample":"A sample that fairly represents a population because each member has an equal chance of inclusion.",
+  "Correlation":"A statistical measure of the extent to which two factors vary together.",
+  "Correlation Coefficient":"A statistical index of the relationship between two things (from −1 to +1).",
+  "Experiment":"A research method in which the researcher manipulates one or more factors to observe the effect on some behavior or mental process.",
+  "Independent Variable":"The factor that is manipulated in an experiment; the variable whose effect is being studied.",
+  "Dependent Variable":"The outcome that is measured; the variable that may change when the independent variable is manipulated.",
+  "Control Condition":"The condition in an experiment that contrasts with the experimental condition and serves as a comparison.",
+  "Random Assignment":"Assigning participants to experimental and control groups by chance, minimizing pre-existing differences.",
+  "Double-Blind Procedure":"An experimental procedure in which both the participants and the research staff are ignorant about who received the treatment.",
+  "Placebo Effect":"Experimental results caused by expectations alone; any effect on behavior caused by the administration of an inert substance.",
+  "Confounding Variable":"A factor other than the independent variable that might influence the dependent variable.",
+  "Mean":"The arithmetic average of a distribution.",
+  "Median":"The middle score in a distribution; half the scores are above it and half are below.",
+  "Mode":"The most frequently occurring score in a distribution.",
+  "Standard Deviation":"A computed measure of how much scores vary around the mean score.",
+  "Statistical Significance":"A statistical statement of how likely it is that an obtained result occurred by chance.",
+  "Effect Size":"A measure of the strength of the relationship between two variables.",
+  "Meta-Analysis":"A statistical procedure for analyzing the results of multiple studies to reach an overall conclusion.",
+  "Neuron":"A nerve cell; the basic building block of the nervous system.",
+  "Dendrites":"The bushy, branching extensions of a neuron that receive messages and conduct impulses toward the cell body.",
+  "Axon":"The extension of a neuron that carries messages away from the cell body to other neurons, muscles, or glands.",
+  "Myelin Sheath":"A layer of fatty tissue that encases the axons of some neurons; speeds their impulses.",
+  "Action Potential":"A neural impulse; a brief electrical charge that travels down an axon.",
+  "Threshold":"The level of stimulation required to trigger a neural impulse.",
+  "Synapse":"The junction between the axon tip of one neuron and the dendrite or cell body of the next neuron.",
+  "Neurotransmitter":"Chemical messengers that cross the synaptic gaps between neurons.",
+  "Reuptake":"The reabsorption of a neurotransmitter by the sending neuron.",
+  "Acetylcholine":"A neurotransmitter that enables learning and memory; also triggers muscle contraction.",
+  "Dopamine":"A neurotransmitter associated with reward, motivation, and motor control; linked to schizophrenia and Parkinson's.",
+  "Serotonin":"A neurotransmitter that affects mood, hunger, sleep, and arousal; linked to depression.",
+  "Norepinephrine":"A neurotransmitter that helps control alertness and arousal; plays a role in the fight-or-flight response.",
+  "GABA":"The brain's major inhibitory neurotransmitter; deficiencies linked to seizures and anxiety.",
+  "Endorphins":"Natural opiate-like neurotransmitters that reduce pain and promote feelings of well-being.",
+  "Central Nervous System":"The brain and spinal cord.",
+  "Peripheral Nervous System":"The sensory and motor neurons connecting the CNS to the rest of the body.",
+  "Somatic Nervous System":"The division of the PNS that controls the body's skeletal muscles.",
+  "Autonomic Nervous System":"Controls glands and the muscles of internal organs; regulates involuntary functions.",
+  "Sympathetic NS":"Division of the ANS that arouses the body for action (fight-or-flight).",
+  "Parasympathetic NS":"Division of the ANS that calms the body, conserving energy (rest-and-digest).",
+  "Brainstem":"The oldest and innermost region of the brain, governing survival functions.",
+  "Medulla":"The base of the brainstem; controls heartbeat and breathing.",
+  "Cerebellum":"The 'little brain' at the rear of the brainstem; coordinates voluntary movement and balance.",
+  "Reticular Formation":"A nerve network in the brainstem that plays an important role in controlling arousal.",
+  "Thalamus":"The brain's sensory switchboard; routes messages to the sensory cortex (except smell).",
+  "Hypothalamus":"Brain structure beneath the thalamus; regulates hunger, thirst, body temperature, and sex drives.",
+  "Limbic System":"Doughnut-shaped system of neural structures associated with emotions and drives.",
+  "Amygdala":"Two lima bean-sized neural clusters in the limbic system; linked to emotion, especially fear and aggression.",
+  "Hippocampus":"A neural center in the limbic system that helps process explicit memories for storage.",
+  "Cerebral Cortex":"The body's ultimate control and information-processing center; the intricate fabric of interconnected neural cells.",
+  "Frontal Lobe":"Portion of the cortex behind the forehead; involved in speaking, muscle movements, and reasoning/planning.",
+  "Parietal Lobe":"Receives sensory input for touch and body position; located at the top and rear of the skull.",
+  "Occipital Lobe":"Portion of the cerebral cortex at the back of the head; includes the visual areas.",
+  "Temporal Lobe":"Located on the sides of the brain; includes the auditory areas.",
+  "Motor Cortex":"An area at the rear of the frontal lobes that controls voluntary movements.",
+  "Somatosensory Cortex":"Area at the front of the parietal lobes that registers and processes body touch and movement sensations.",
+  "Association Areas":"Areas of the cerebral cortex that are not involved in primary motor or sensory functions; involved in higher mental functions.",
+  "Corpus Callosum":"The large band of neural fibers connecting the two brain hemispheres.",
+  "Split Brain":"A condition resulting from surgery that isolates the brain's two hemispheres by cutting the corpus callosum.",
+  "Neuroplasticity":"The brain's ability to change, especially during childhood, by reorganizing after damage or in response to new experience.",
+  "Endocrine System":"The body's 'slow' chemical communication system; a set of glands that secrete hormones into the bloodstream.",
+  "Pituitary Gland":"The endocrine system's most influential gland; regulates growth and controls other endocrine glands.",
+  "Hormones":"Chemical messengers manufactured by the endocrine glands and secreted into the bloodstream.",
+  "EEG":"An amplified recording of the electrical waves sweeping across the brain's surface.",
+  "fMRI":"A technique that uses magnetic fields and radio waves to produce computer images showing blood flow and brain activity.",
+  "PET Scan":"A visual display of brain activity that detects radioactive glucose while the brain performs a given task.",
+  "Consciousness":"Our awareness of ourselves and our environment.",
+  "Dual Processing":"The principle that information is often simultaneously processed on separate conscious and unconscious tracks.",
+  "Selective Attention":"The focusing of conscious awareness on a particular stimulus.",
+  "Inattentional Blindness":"Failing to see visible objects when our attention is directed elsewhere (e.g., invisible gorilla study).",
+  "Change Blindness":"Failing to notice changes in the environment when attention is not directed to those changes.",
+  "Circadian Rhythm":"The biological clock; regular body rhythms that occur on a 24-hour cycle.",
+  "REM Sleep":"Rapid eye movement sleep; a recurring sleep stage during which vivid dreams occur (also called paradoxical sleep).",
+  "Alpha Waves":"The relatively slow brain waves of a relaxed, awake state.",
+  "Sleep Spindles":"Bursts of brain activity during NREM 2 sleep.",
+  "Delta Waves":"The large, slow brain waves associated with deep sleep (NREM 3).",
+  "Insomnia":"Recurring problems in falling or staying asleep.",
+  "Narcolepsy":"A sleep disorder characterized by sudden uncontrollable sleep attacks.",
+  "Sleep Apnea":"A sleep disorder characterized by temporary cessations of breathing during sleep.",
+  "Night Terrors":"A sleep disorder characterized by high arousal and terrifying feelings, mostly in NREM 3.",
+  "Manifest Content":"According to Freud, the remembered storyline of a dream.",
+  "Latent Content":"According to Freud, the underlying meaning of a dream (as distinct from its manifest content).",
+  "Hypnosis":"A social interaction in which one person (the hypnotist) suggests to another that certain perceptions, feelings, thoughts, or behaviors will spontaneously occur.",
+  "Psychoactive Drug":"A chemical substance that alters perceptions and moods.",
+  "Tolerance":"The diminishing effect with regular use of the same dose of a drug, requiring larger doses to get the same effect.",
+  "Withdrawal":"The discomfort and distress that follow discontinuing the use of an addictive drug.",
+  "Depressants":"Drugs that reduce neural activity and slow body functions (alcohol, barbiturates, opiates).",
+  "Stimulants":"Drugs that excite neural activity and speed up body functions (caffeine, cocaine, amphetamines).",
+  "Hallucinogens":"Psychedelic drugs that distort perceptions and evoke sensory images in the absence of sensory input (LSD, psilocybin).",
+  "THC":"The major active ingredient in marijuana; triggers a variety of effects including mild hallucinations.",
+  "LSD":"A powerful hallucinogenic drug; produces vivid distortions of sensory and perceptual experience.",
+  "Opiates":"Opium and its derivatives; depress neural activity and temporarily lessen pain and anxiety.",
+  "Sensation":"The process by which our sensory receptors and nervous system receive and represent stimulus energies.",
+  "Perception":"The process of organizing and interpreting sensory information, enabling us to recognize meaningful objects and events.",
+  "Transduction":"Conversion of one form of energy into another; sensory organs convert stimulus energy into neural impulses.",
+  "Absolute Threshold":"The minimum stimulation needed to detect a particular stimulus 50% of the time.",
+  "Signal Detection Theory":"A theory predicting how and when we detect the presence of a faint stimulus amid background stimulation.",
+  "Difference Threshold (JND)":"The minimum difference between two stimuli required for detection 50% of the time; also called the just noticeable difference.",
+  "Weber's Law":"The principle that to be perceived as different, two stimuli must differ by a constant minimum percentage.",
+  "Sensory Adaptation":"Diminished sensitivity as a consequence of constant stimulation.",
+  "Retina":"The light-sensitive inner surface of the eye, containing the receptor rods and cones.",
+  "Rods":"Retinal receptors that detect black, white, and gray; necessary for peripheral and dim-light vision.",
+  "Cones":"Retinal receptors concentrated near the fovea that function in daylight or in well-lit conditions and detect fine detail and color.",
+  "Fovea":"The central focal point in the retina, where cones are concentrated.",
+  "Feature Detectors":"Nerve cells in the brain that respond to specific features of the stimulus, such as shape, angle, or movement.",
+  "Parallel Processing":"Processing many aspects of a problem simultaneously (e.g., color, shape, movement, depth all at once in vision).",
+  "Young-Helmholtz Theory":"The theory that the retina contains three kinds of color receptors (red, green, blue) that combine to produce all colors.",
+  "Opponent-Process Theory":"The theory that opposing retinal processes enable color vision; explains afterimages.",
+  "Cochlea":"A coiled, bony, fluid-filled tube in the inner ear; sound waves trigger nerve impulses here.",
+  "Place Theory":"The theory that links the pitch we hear with the place where the cochlea's membrane is stimulated.",
+  "Frequency Theory":"The theory that the rate of nerve impulses traveling up the auditory nerve matches the frequency of a tone.",
+  "Gate-Control Theory":"The theory that the spinal cord contains a neurological 'gate' that blocks pain signals or allows them to pass.",
+  "Kinesthesis":"The sense of the position and movement of individual body parts.",
+  "Vestibular Sense":"The sense of body movement and position, including the sense of balance; sensed via the inner ear.",
+  "Gestalt":"An organized whole; Gestalt psychologists emphasized our tendency to integrate pieces of information into meaningful wholes.",
+  "Figure-Ground":"The organization of the visual field into objects (the figures) that stand out from their surroundings (the ground).",
+  "Proximity":"Gestalt principle: we group nearby figures together.",
+  "Closure":"Gestalt principle: we fill in gaps to create a complete, whole object.",
+  "Perceptual Constancy":"Perceiving objects as unchanging even as illumination and retinal images change.",
+  "Binocular Cues":"Depth cues that depend on information from both eyes (retinal disparity, convergence).",
+  "Retinal Disparity":"A binocular cue for perceiving depth; the greater the difference between the images seen by each eye, the closer the object.",
+  "Monocular Cues":"Depth cues available to either eye alone (linear perspective, interposition, relative size).",
+  "Linear Perspective":"A monocular depth cue: parallel lines converge in the distance.",
+  "Perceptual Set":"A mental predisposition to perceive one thing and not another; shaped by context and expectations.",
+  "Top-Down Processing":"Information processing guided by higher-level mental processes, drawing on experience and expectations.",
+  "Bottom-Up Processing":"Analysis beginning with sensory receptors and working up to the brain's integration of sensory information.",
+  "Learning":"A relatively permanent change in an organism's behavior due to experience.",
+  "Habituation":"Decreasing responsiveness with repeated stimulation — the simplest form of learning.",
+  "Classical Conditioning":"A type of learning in which an organism comes to associate stimuli; Pavlov's work is the classic example.",
+  "UCS (Unconditioned Stimulus)":"A stimulus that unconditionally, naturally, and automatically triggers a response.",
+  "UCR (Unconditioned Response)":"The unlearned, naturally occurring response to the UCS.",
+  "CS (Conditioned Stimulus)":"An originally irrelevant stimulus that, after association with the UCS, triggers a conditioned response.",
+  "CR (Conditioned Response)":"The learned response to a previously neutral conditioned stimulus.",
+  "Acquisition":"The initial stage of classical conditioning; the phase in which the NS is paired with the UCS.",
+  "Extinction":"In classical conditioning, the diminishing of a CR when the CS no longer signals the UCS.",
+  "Spontaneous Recovery":"The reappearance of an extinguished CR after a rest period.",
+  "Generalization":"The tendency to respond to stimuli similar to the CS.",
+  "Discrimination":"The learned ability to distinguish between a CS and other stimuli that do not signal a UCS.",
+  "Higher-Order Conditioning":"A procedure in which the CS from one conditioning experience is used as the UCS for further conditioning.",
+  "Operant Conditioning":"A type of learning in which behavior is strengthened if followed by reinforcement or diminished if followed by punishment.",
+  "Law of Effect":"Thorndike's principle: behaviors followed by favorable outcomes become more likely; unfavorable outcomes become less likely.",
+  "Reinforcer":"In operant conditioning, any event that strengthens the behavior it follows.",
+  "Positive Reinforcement":"Increasing behaviors by presenting positive stimuli, such as food.",
+  "Negative Reinforcement":"Increasing behaviors by stopping or reducing negative stimuli (removing something unpleasant).",
+  "Positive Punishment":"Adding an undesirable stimulus to decrease a behavior.",
+  "Negative Punishment":"Removing a desirable stimulus to decrease a behavior.",
+  "Fixed-Ratio Schedule":"Reinforces a response only after a specified number of responses (e.g., every 5th response).",
+  "Variable-Ratio Schedule":"Reinforces a response after an unpredictable number of responses; highest rate, most extinction-resistant.",
+  "Fixed-Interval Schedule":"Reinforces the first response after a specified time period has elapsed.",
+  "Variable-Interval Schedule":"Reinforces the first response after varying time intervals; produces steady, low rates.",
+  "Shaping":"An operant conditioning procedure; reinforcing successive approximations of a desired behavior.",
+  "Latent Learning":"Learning that occurs but is not apparent until there is an incentive to demonstrate it (Tolman).",
+  "Cognitive Map":"A mental representation of the layout of one's environment.",
+  "Insight":"A sudden realization of a problem's solution; contrasts with step-by-step problem solving (Kohler's chimps).",
+  "Intrinsic Motivation":"A desire to perform a behavior effectively for its own sake.",
+  "Extrinsic Motivation":"A desire to perform a behavior due to promised rewards or threats of punishment.",
+  "Observational Learning":"Learning by observing others (modeling); Bandura's key concept.",
+  "Modeling":"The process of observing and imitating a specific behavior.",
+  "Bandura":"Psychologist known for observational learning, the Bobo doll study, and the concept of self-efficacy.",
+  "Mirror Neurons":"Frontal lobe neurons that fire when performing certain actions or when observing another doing so.",
+  "Bobo Doll Study":"Bandura's experiment showing children imitate aggressive behavior they observe in adults.",
+  "Encoding":"The processing of information into the memory system.",
+  "Storage":"The retention of encoded information over time.",
+  "Retrieval":"The process of getting information out of memory storage.",
+  "Sensory Memory":"The immediate, brief recording of sensory information in the memory system.",
+  "Working Memory":"A newer understanding of short-term memory; focuses on conscious, active processing of information.",
+  "Long-Term Memory":"The relatively permanent and limitless storehouse of the memory system.",
+  "Explicit Memory":"Memory of facts and experiences that one can consciously know and declare (also called declarative memory).",
+  "Implicit Memory":"Retention independent of conscious recollection; includes procedural skills and conditioned responses.",
+  "Episodic Memory":"Explicit memory of personally experienced events.",
+  "Semantic Memory":"Explicit memory of facts and general knowledge.",
+  "Procedural Memory":"Implicit memory for skills and conditioned associations (how to ride a bike).",
+  "Hippocampus":"Neural center in the limbic system critical for forming new explicit memories.",
+  "Effortful Processing":"Encoding that requires attention and conscious effort.",
+  "Spacing Effect":"The tendency for distributed study or practice to yield better long-term retention than massed practice.",
+  "Testing Effect":"Enhanced memory after retrieving information rather than simply re-reading it.",
+  "Serial Position Effect":"Our tendency to recall best the last and first items in a list.",
+  "Primacy Effect":"Better recall of items at the beginning of a list.",
+  "Recency Effect":"Better recall of items at the end of a list.",
+  "Priming":"The activation, often unconsciously, of particular associations in memory.",
+  "Context-Dependent Memory":"Improved recall when the retrieval context matches the encoding context.",
+  "State-Dependent Memory":"What is learned in one state is best remembered when in that same state.",
+  "Mood-Congruent Memory":"The tendency to recall experiences that are consistent with one's current mood.",
+  "Recall":"A measure of memory in which the person must retrieve information learned earlier (fill-in-the-blank).",
+  "Recognition":"A measure of memory in which the person need only identify items previously learned (multiple choice).",
+  "Proactive Interference":"The disruptive effect of prior learning on the recall of new information.",
+  "Retroactive Interference":"The disruptive effect of new learning on the recall of old information.",
+  "Repression":"In psychoanalytic theory, the basic defense mechanism that banishes anxiety-arousing thoughts from consciousness.",
+  "Misinformation Effect":"Incorporating misleading information into one's memory of an event (Elizabeth Loftus).",
+  "Source Amnesia":"Attributing to the wrong source an event we have experienced, heard about, read about, or imagined.",
+  "Flashbulb Memory":"A clear memory of an emotionally significant moment or event, though accuracy may still be imperfect.",
+  "Anterograde Amnesia":"Inability to form new memories after brain damage (H.M.'s case).",
+  "Retrograde Amnesia":"Inability to recall events that occurred before a brain injury.",
+  "Concept":"A mental grouping of similar objects, events, ideas, or people.",
+  "Prototype":"A mental image or best example of a category.",
+  "Algorithm":"A methodical, logical rule or procedure that guarantees solving a particular problem.",
+  "Heuristic":"A simple thinking strategy that allows us to make judgments and solve problems efficiently — though not always accurately.",
+  "Confirmation Bias":"A tendency to search for information that supports our preconceptions and to ignore contradictory evidence.",
+  "Mental Set":"A tendency to approach a problem in one particular way, often based on what worked before.",
+  "Functional Fixedness":"The tendency to think of objects only in terms of their usual functions.",
+  "Representativeness Heuristic":"Judging the likelihood of things in terms of how well they seem to match a particular prototype.",
+  "Availability Heuristic":"Estimating the likelihood of events based on their availability in memory.",
+  "Overconfidence":"The tendency to be more confident than correct; to overestimate the accuracy of one's beliefs.",
+  "Framing":"The way an issue is posed; how an issue is framed can significantly affect decisions and judgments.",
+  "Belief Perseverance":"Clinging to one's initial conceptions after the basis on which they were formed has been discredited.",
+  "Phoneme":"In language, the smallest distinctive sound unit.",
+  "Morpheme":"In a language, the smallest unit that carries meaning.",
+  "Universal Grammar":"Chomsky's theory that all human languages share the same underlying grammatical structure, suggesting an innate capacity for language.",
+  "Linguistic Relativity":"Whorf's hypothesis that language determines the way we think (e.g., more color words → finer color distinctions).",
+  "General Intelligence (g)":"Spearman's concept of a general intelligence factor underlying specific mental abilities.",
+  "Multiple Intelligences":"Gardner's theory that we have eight intelligences: linguistic, logical, musical, spatial, bodily-kinesthetic, intrapersonal, interpersonal, naturalist.",
+  "Triarchic Theory":"Sternberg's theory of three types of intelligence: analytical, creative, and practical.",
+  "Emotional Intelligence":"The ability to perceive, express, understand, and manage emotions.",
+  "Stanford-Binet":"The widely used American revision of Binet's original intelligence test.",
+  "Wechsler Scales":"The most widely used intelligence tests (WAIS for adults, WISC for children); assesses verbal and performance subtests.",
+  "Reliability":"The extent to which a test yields consistent results.",
+  "Validity":"The extent to which a test measures or predicts what it is supposed to.",
+  "Standardization":"Defining uniform testing procedures and meaningful scores by comparison with a pretested group.",
+  "Normal Curve":"The symmetrical bell-shaped curve that describes the distribution of many physical and psychological attributes.",
+  "Flynn Effect":"The rise in average IQ scores that has occurred over the decades in many nations.",
+  "Stereotype Threat":"A self-confirming concern that one will be evaluated based on a negative stereotype.",
+  "Teratogen":"Any agent (chemical, radiation, virus) that can reach the embryo or fetus and cause harm.",
+  "Fetal Alcohol Syndrome":"Physical and cognitive abnormalities in children caused by a pregnant woman's heavy drinking.",
+  "Schema":"A concept or framework that organizes and interprets information.",
+  "Assimilation":"Interpreting our new experience in terms of our existing schemas.",
+  "Accommodation":"Adapting our current understandings (schemas) to incorporate new information.",
+  "Sensorimotor Stage":"Birth–2 years; infant experiences the world through senses and actions; develops object permanence.",
+  "Object Permanence":"The awareness that objects continue to exist even when not perceived.",
+  "Preoperational Stage":"Ages 2–7; child learns to use language but does not yet comprehend the mental operations of concrete logic; egocentric.",
+  "Egocentrism":"In Piaget's theory, the preoperational child's difficulty taking another's point of view.",
+  "Theory of Mind":"People's ideas about their own and others' mental states — feelings, perceptions, thoughts.",
+  "Concrete Operational Stage":"Ages 7–11; children gain mental operations that enable them to think logically about concrete events; understand conservation.",
+  "Conservation":"The principle (grasped in the concrete operational stage) that quantity remains the same despite changes in shape.",
+  "Formal Operational Stage":"Ages 12+; stage in which people begin to think logically about abstract concepts.",
+  "Zone of Proximal Development":"Vygotsky's concept: the gap between what a learner can do alone vs. with guidance.",
+  "Scaffolding":"Vygotsky's concept: adjusting support to suit the learner's current performance level.",
+  "Attachment":"An emotional tie with another person; shown in young children by their seeking closeness to the caregiver.",
+  "Critical Period":"An optimal period early in the life of an organism when exposure to certain stimuli or experiences produces normal development.",
+  "Secure Attachment":"Attachmented infants explore using caregiver as a safe base; distressed when separated, happy at reunion.",
+  "Anxious Attachment":"Clingy, distressed on separation, not easily soothed at reunion.",
+  "Avoidant Attachment":"Little distress at separation; avoids or ignores caregiver at reunion.",
+  "Erikson's Psychosocial Stages":"Eight stages of psychosocial development, each centered on a conflict that must be resolved.",
+  "Trust vs. Mistrust":"Erikson's stage 1 (infancy): developing trust if needs are met reliably.",
+  "Autonomy vs. Shame":"Erikson's stage 2 (toddler): developing independence vs. doubt.",
+  "Initiative vs. Guilt":"Erikson's stage 3 (preschool): taking initiative vs. feeling guilty about desires.",
+  "Industry vs. Inferiority":"Erikson's stage 4 (elementary school): developing competence vs. feeling inferior.",
+  "Identity vs. Role Confusion":"Erikson's stage 5 (adolescence): developing a sense of self vs. confusion about roles.",
+  "Intimacy vs. Isolation":"Erikson's stage 6 (young adulthood): forming intimate relationships vs. feeling isolated.",
+  "Generativity vs. Stagnation":"Erikson's stage 7 (middle adulthood): contributing to the world vs. feeling purposeless.",
+  "Integrity vs. Despair":"Erikson's stage 8 (late adulthood): reflecting on life with satisfaction vs. regret.",
+  "Preconventional Morality":"Kohlberg's level 1: morality based on self-interest; obeying to avoid punishment or gain rewards.",
+  "Conventional Morality":"Kohlberg's level 2: morality based on upholding laws and social rules.",
+  "Postconventional Morality":"Kohlberg's level 3: morality based on abstract ethical principles.",
+  "Alzheimer's Disease":"A progressive and irreversible brain disorder that destroys memory and thinking skills.",
+  "Fluid Intelligence":"Our ability to reason speedily and abstractly; tends to decrease with age.",
+  "Crystallized Intelligence":"Our accumulated knowledge and verbal skills; tends to increase with age.",
+  "Motivation":"A need or desire that energizes and directs behavior.",
+  "Drive-Reduction Theory":"The idea that a physiological need creates an aroused tension state (drive) that motivates an organism to satisfy the need.",
+  "Homeostasis":"A tendency to maintain a balanced or constant internal state.",
+  "Arousal Theory":"The view that we are motivated to seek an optimal level of arousal.",
+  "Yerkes-Dodson Law":"The principle that performance peaks at moderate levels of arousal; too low or too high impairs performance.",
+  "Hierarchy of Needs":"Maslow's pyramid of human needs from physiological basics to self-actualization.",
+  "Self-Actualization":"The need to live up to one's fullest and unique potential (top of Maslow's hierarchy).",
+  "Glucose":"The form of sugar that circulates in the blood; the brain's principal energy source; low levels trigger hunger.",
+  "Hypothalamus":"Controls hunger, thirst, and body temperature; lateral nucleus = hunger on; ventromedial = hunger off.",
+  "Ghrelin":"Hunger-arousing hormone secreted by an empty stomach.",
+  "Leptin":"Protein hormone secreted by fat cells; when abundant, causes the brain to increase metabolism and decrease hunger.",
+  "Set Point":"The point at which an individual's 'weight thermostat' is supposedly set, regulating fat stores.",
+  "Anorexia Nervosa":"An eating disorder in which a person maintains a starvation diet due to intense fear of gaining weight.",
+  "Bulimia Nervosa":"An eating disorder characterized by episodes of overeating, usually of high-calorie foods, followed by purging.",
+  "Binge-Eating Disorder":"Significant binge-eating episodes, followed by distress and guilt, but without purging.",
+  "Emotion":"A response of the whole organism involving physiological arousal, expressive behaviors, and conscious experience.",
+  "James-Lange Theory":"The theory that our experience of emotion is our awareness of our physiological responses to emotion-arousing stimuli.",
+  "Cannon-Bard Theory":"The theory that an emotion-triggering stimulus simultaneously triggers physiological responses and the subjective experience of emotion.",
+  "Schachter's Two-Factor Theory":"The theory that emotions have two components — physical arousal plus a cognitive label — and we look to our environment to explain arousal.",
+  "Spillover Effect":"Our arousal from one event can spill over into our response to the next event (related to two-factor theory).",
+  "Polygraph":"A machine used to detect lies that measures several physiological responses accompanying emotion.",
+  "Facial Feedback Effect":"The tendency of facial muscle states to trigger corresponding feelings (smiling makes you feel happier).",
+  "Catharsis":"Releasing aggressive energy by acting it out; research suggests it often increases rather than decreases aggression.",
+  "Personality":"An individual's characteristic pattern of thinking, feeling, and acting.",
+  "Id":"In Freud's theory, a reservoir of unconscious psychic energy striving to satisfy basic drives; operates on the pleasure principle.",
+  "Ego":"In Freud's theory, the largely conscious executive part of personality that mediates among id, superego, and reality.",
+  "Superego":"The part of personality that represents internalized ideals; provides standards for judgment (the conscience).",
+  "Unconscious":"According to Freud, a reservoir of mostly unacceptable thoughts, wishes, feelings, and memories.",
+  "Free Association":"In psychoanalysis, a method of exploring the unconscious in which the person relaxes and says whatever comes to mind.",
+  "Psychosexual Stages":"The childhood stages of development during which the id's pleasure-seeking energies focus on distinct erogenous zones.",
+  "Oedipus Complex":"According to Freud, a boy's sexual desires toward his mother and feelings of jealousy and hatred for the rival father.",
+  "Fixation":"A lingering focus of pleasure-seeking energies at an earlier psychosexual stage.",
+  "Defense Mechanisms":"In psychoanalytic theory, the ego's protective methods of reducing anxiety by unconsciously distorting reality.",
+  "Repression":"Banishing anxiety-arousing thoughts, feelings, and memories from consciousness.",
+  "Projection":"Disguising one's own threatening impulses by attributing them to others.",
+  "Rationalization":"Offering self-justifying explanations in place of the real, more threatening, unconscious reasons.",
+  "Reaction Formation":"Switching unacceptable impulses into their opposites.",
+  "Displacement":"Shifting sexual or aggressive impulses toward a more acceptable or less threatening object or person.",
+  "Sublimation":"Transforming unacceptable impulses into socially valued motivations.",
+  "Regression":"Retreating to an earlier, more infantile stage of development.",
+  "Collective Unconscious":"Jung's concept of a shared, inherited reservoir of memory traces from our species' history.",
+  "Archetypes":"Jung's concept; universal symbolic images in the collective unconscious.",
+  "Inferiority Complex":"Adler's term; a general feeling of inferiority driven by childhood feelings of helplessness.",
+  "Self-Concept":"All our thoughts and feelings about ourselves in answer to 'Who am I?'",
+  "Unconditional Positive Regard":"Rogers' term for acceptance and love with no strings attached; crucial to developing a positive self-concept.",
+  "Big Five (OCEAN)":"The five-factor model of personality: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism.",
+  "Openness":"Big Five trait: curiosity, creativity, and openness to new experiences.",
+  "Conscientiousness":"Big Five trait: organized, disciplined, and dependable.",
+  "Extraversion":"Big Five trait: outgoing, energetic, and seeking social stimulation.",
+  "Agreeableness":"Big Five trait: cooperative, trusting, and helpful.",
+  "Neuroticism":"Big Five trait: emotional instability; tendency toward anxiety, moodiness, and irritability.",
+  "Reciprocal Determinism":"Bandura's concept: the interacting influences of behavior, environment, and cognition on each other.",
+  "Locus of Control":"The extent to which people perceive control over their environment (internal vs. external).",
+  "Self-Efficacy":"One's sense of competence and effectiveness; belief in one's ability to succeed at a task.",
+  "MMPI":"Minnesota Multiphasic Personality Inventory; the most widely researched and clinically used objective personality test.",
+  "Rorschach Inkblot Test":"The most widely used projective test, developed by Hermann Rorschach; seeks to identify people's feelings via their interpretations of inkblots.",
+  "TAT":"Thematic Apperception Test; a projective test in which people express their inner feelings through stories about ambiguous scenes.",
+  "DSM-5":"The American Psychiatric Association's Diagnostic and Statistical Manual, 5th edition, defining and classifying psychological disorders.",
+  "Generalized Anxiety Disorder":"An anxiety disorder in which a person is continually tense, apprehensive, and in a state of autonomic nervous system arousal with no specific cause.",
+  "Panic Disorder":"An anxiety disorder marked by unpredictable, minutes-long episodes of intense dread accompanied by terror and physiological symptoms.",
+  "Specific Phobia":"An anxiety disorder marked by a persistent, irrational fear and avoidance of a specific object, activity, or situation.",
+  "Social Anxiety Disorder":"Intense fear of social situations; overwhelming self-consciousness about being judged.",
+  "OCD":"Obsessive-Compulsive Disorder; characterized by unwanted repetitive thoughts (obsessions) and/or actions (compulsions).",
+  "PTSD":"Post-Traumatic Stress Disorder; haunting memories, nightmares, social withdrawal, and jumpy anxiety after trauma.",
+  "Major Depressive Disorder":"A mood disorder in which a person experiences 5+ depressive symptoms for at least 2 weeks.",
+  "Learned Helplessness":"The hopelessness and passive resignation an animal or human learns when unable to avoid repeated aversive events (Seligman).",
+  "Bipolar Disorder":"A mood disorder in which the person alternates between depression and mania.",
+  "Mania":"A hyperactive, wildly optimistic state characterized by elevated mood, decreased need for sleep, and poor judgment.",
+  "Schizophrenia":"A psychotic disorder characterized by disorganized thinking, disturbed perceptions, and inappropriate emotions or actions.",
+  "Positive Symptoms":"Symptoms of schizophrenia that reflect an excess or distortion of normal functioning (hallucinations, delusions).",
+  "Negative Symptoms":"Symptoms of schizophrenia that reflect a diminishment of normal functioning (flat affect, alogia, avolition).",
+  "Hallucinations":"False sensory experiences, such as hearing sounds or seeing things that have no basis in external reality.",
+  "Delusions":"False beliefs, often of persecution or grandeur, that may accompany psychotic disorders.",
+  "Disorganized Thinking":"In schizophrenia, fragmented and bizarre thinking; often inferred from disorganized speech.",
+  "Dopamine Hypothesis":"The theory that schizophrenia involves an excess of dopamine activity.",
+  "Flat Affect":"In schizophrenia, a negative symptom characterized by reduced emotional expressiveness.",
+  "Dissociative Identity Disorder":"A dissociative disorder in which a person exhibits two or more distinct and alternating personalities (formerly multiple personality disorder).",
+  "Dissociative Amnesia":"A dissociative disorder characterized by inability to recall important personal information, usually following extreme stress.",
+  "Personality Disorder":"Psychological disorders characterized by inflexible and enduring behavior patterns that impair social functioning.",
+  "Antisocial Personality Disorder":"A personality disorder in which the person exhibits a lack of conscience for wrongdoing, even toward friends and family.",
+  "Borderline Personality Disorder":"Characterized by instability in relationships, self-image, and emotions, with a notable risk of self-harm.",
+  "ADHD":"Attention-Deficit/Hyperactivity Disorder; marked by inattention, hyperactivity, and/or impulsivity.",
+  "Autism Spectrum Disorder":"A disorder that appears in childhood and is marked by significant deficiencies in communication and social interaction.",
+  "Psychotherapy":"Treatment involving psychological techniques; consists of interactions between a trained therapist and someone seeking to overcome difficulties.",
+  "Eclectic Approach":"An approach to psychotherapy that uses techniques from various forms of therapy.",
+  "Transference":"In psychoanalysis, the patient's transfer of emotions linked with other relationships to the therapist.",
+  "Resistance":"In psychoanalysis, the blocking from consciousness of anxiety-laden material.",
+  "Client-Centered Therapy":"A humanistic therapy developed by Carl Rogers in which the therapist uses active listening within a genuine, accepting, empathic environment.",
+  "Active Listening":"Empathic listening in which the listener echoes, restates, and clarifies.",
+  "Systematic Desensitization":"A type of counterconditioning that associates a pleasant relaxed state with gradually increasing anxiety-triggering stimuli.",
+  "Exposure Therapy":"Behavioral technique that treats anxiety by exposing clients to what they fear.",
+  "Aversive Conditioning":"A type of counterconditioning that associates an unpleasant state with an unwanted behavior.",
+  "Token Economy":"An operant conditioning procedure using tokens as secondary reinforcers to modify behavior.",
+  "Cognitive Therapy":"Therapy that teaches people new, more adaptive ways of thinking and acting, based on the assumption that thoughts intervene between events and our emotional reactions.",
+  "CBT":"Cognitive-Behavioral Therapy; a popular integrative therapy that combines cognitive therapy and behavior therapy.",
+  "REBT":"Rational-Emotive Behavior Therapy; Albert Ellis's confrontational cognitive therapy that challenges irrational beliefs.",
+  "SSRIs":"Selective Serotonin Reuptake Inhibitors; antidepressants that increase serotonin availability (e.g., Prozac, Zoloft).",
+  "Antidepressants":"Drugs used to treat depression; categories include SSRIs, SNRIs, and tricyclics.",
+  "Antipsychotics":"Drugs used to treat schizophrenia and other psychotic disorders by blocking dopamine receptors.",
+  "Mood Stabilizers":"Drugs used to treat bipolar disorder (e.g., lithium).",
+  "Lithium":"A mood-stabilizing salt that is used to treat bipolar disorder.",
+  "Anxiolytics":"Anti-anxiety drugs; benzodiazepines reduce anxiety by depressing CNS activity.",
+  "ECT":"Electroconvulsive Therapy; a biomedical treatment for severe depression in which electric current is sent through the brain.",
+  "TMS":"Transcranial Magnetic Stimulation; a treatment that uses magnetic pulses to stimulate specific brain areas; used for depression.",
+  "Attribution Theory":"The theory that we explain someone's behavior by crediting either the situation or the person's disposition.",
+  "Dispositional Attribution":"Attributing behavior to the person's character or personality.",
+  "Situational Attribution":"Attributing behavior to the environment or circumstances.",
+  "Fundamental Attribution Error":"The tendency for observers to underestimate situational influences and overestimate dispositional influences when explaining others' behaviors.",
+  "Self-Serving Bias":"A readiness to perceive oneself favorably; attributing successes to ability, failures to situation.",
+  "Cognitive Dissonance":"Festinger's theory; tension that arises when one is simultaneously aware of two inconsistent cognitions; motivates attitude change.",
+  "Foot-in-the-Door":"The tendency for people who have first agreed to a small request to comply later with a larger request.",
+  "Door-in-the-Face":"Compliance strategy: make a large request first (expect refusal), then make the smaller, real request.",
+  "Central Route Persuasion":"Opinion change path of someone who is interested in the topic and who thinks about the arguments.",
+  "Peripheral Route":"Opinion change path for someone not motivated to think; influenced by incidental cues.",
+  "Conformity":"Adjusting one's behavior or thinking to coincide with a group standard.",
+  "Normative Social Influence":"Influence resulting from a person's desire to gain approval or avoid disapproval.",
+  "Informational Social Influence":"Influence resulting from one's willingness to accept others' opinions about reality.",
+  "Asch's Conformity Study":"Showed that people often conform to group answers on line-length tasks even when the group is clearly wrong (~37% conformity).",
+  "Obedience":"Following an authority's direct commands.",
+  "Milgram Study":"Experiment in which ~65% of participants obeyed authority figures to administer what they thought were dangerous shocks to learners.",
+  "Social Facilitation":"Stronger performance on simple tasks in the presence of others.",
+  "Social Loafing":"The tendency for people in a group to exert less effort when pooling their efforts toward a common goal.",
+  "Deindividuation":"The loss of self-awareness and self-restraint occurring in group situations that foster anonymity.",
+  "Groupthink":"The mode of thinking that occurs when the desire for harmony in a decision-making group overrides realistic appraisal of alternatives.",
+  "Group Polarization":"The enhancement of a group's prevailing inclinations through group discussion (views become more extreme).",
+  "Prejudice":"An unjustifiable (and usually negative) attitude toward a group and its members.",
+  "Stereotype":"A generalized (sometimes accurate, but often overgeneralized) belief about a group of people.",
+  "Discrimination":"Unjustifiable negative behavior toward a group or its members.",
+  "In-Group Bias":"The tendency to favor our own group.",
+  "Scapegoat Theory":"The theory that prejudice offers an outlet for anger by providing someone to blame.",
+  "Just-World Phenomenon":"The tendency of people to believe the world is just and that people get what they deserve.",
+  "Bystander Effect":"The tendency for any given bystander to be less likely to give aid if other bystanders are present.",
+  "Diffusion of Responsibility":"In groups, each person feels less responsible for taking action.",
+  "Altruism":"Unselfish regard for the welfare of others.",
+  "Mere Exposure Effect":"The phenomenon that repeated exposure to novel stimuli increases liking of them.",
+  "Aggression":"Any physical or verbal behavior intended to hurt or destroy."
+};
+
+const EXAMPLES = {
+  "Independent Variable":"In a study on caffeine and test scores, the IV is the amount of caffeine given.",
+  "Dependent Variable":"In a study on caffeine and test scores, the DV is the test score.",
+  "Correlation Coefficient":"If r = +0.85 between study hours and GPA, more studying strongly predicts higher GPA — but doesn't prove it causes it.",
+  "Placebo Effect":"Patients given a sugar pill who believe it is a painkiller often report reduced pain.",
+  "Action Potential":"Like a gun's trigger — below threshold nothing happens; above it fires completely (all-or-none).",
+  "Dopamine":"Parkinson's disease results from low dopamine; cocaine works by flooding the synapse with dopamine.",
+  "Sympathetic NS":"Activated during a car accident: heart races, pupils dilate, digestion slows.",
+  "REM Sleep":"Adults spend ~2 hours in REM per night; REM deprivation causes REM rebound the next night.",
+  "Classical Conditioning":"Pavlov's dogs salivated to a bell (CS) after it was paired with food (UCS).",
+  "Negative Reinforcement":"Buckling a seatbelt (behavior) stops the annoying beeping (removal of aversive stimulus).",
+  "Variable-Ratio Schedule":"Slot machines pay out on a variable-ratio schedule — that's why they're so addictive.",
+  "Misinformation Effect":"Loftus showed that asking 'How fast were the cars going when they smashed?' led to higher speed estimates than 'contacted.'",
+  "Fundamental Attribution Error":"Seeing someone trip and thinking 'they're clumsy' rather than 'the floor is slippery.'",
+  "Cognitive Dissonance":"Smokers who know smoking is harmful but continue might rationalize: 'It relieves my stress.'",
+  "Milgram Study":"65% of ordinary people obeyed an authority figure to deliver what they thought were 450-volt shocks.",
+  "Bystander Effect":"In a crowded subway, each person assumes someone else will help the person who collapsed.",
+  "Schema":"A child who has only seen small dogs may try to pet a wolf, fitting it into their 'dog' schema.",
+  "Object Permanence":"Before 8 months, if you hide a toy, the infant acts as if it no longer exists.",
+  "Systematic Desensitization":"A person with a fear of spiders is first taught relaxation, then imagines spiders, then views pictures, then sees a real one.",
+  "SSRIs":"Prozac and Zoloft block the reuptake of serotonin, increasing its availability in the synapse.",
+  "ECT":"Used for severe depression that has not responded to medication; produces seizures and can relieve symptoms.",
+  "Asch's Conformity Study":"Participants matched wrong answers given by confederates on obvious line-length comparisons ~37% of the time.",
+  "Groupthink":"The Bay of Pigs decision: Kennedy's advisors suppressed doubts to maintain group harmony, leading to disaster."
+};
+
+// ─────────────────────────────────────────────
+// UNIT DATA
+// ─────────────────────────────────────────────
+const units = [
+  {num:"Unit 1",title:"Scientific Foundations of Psychology",
+   preview:"Explore how psychology became a science, its major theoretical perspectives, and the research methods psychologists use to study behavior.",
+   chapters:[{num:"Chapter 1",name:"History, Perspectives, & Research Methods",
+    overview:"Psychology's origins, theoretical perspectives, and scientific research methods. Covers how psychologists think and conduct research to understand behavior and mental processes.",
+    keyPoints:["Psychology evolved from philosophy and physiology; Wilhelm Wundt opened the first psychology lab in 1879.","Major perspectives: biological, psychodynamic, behavioral, cognitive, humanistic, sociocultural, evolutionary.","Scientific method: hypothesis → research design → data collection → analysis → conclusion.","Research designs: experimental, correlational, descriptive (surveys, case studies, naturalistic observation).","Statistics: measures of central tendency, standard deviation, statistical significance, and correlation coefficients."],
+    vocab:[{t:"Psychology",h:true},{t:"Empiricism",h:false},{t:"Structuralism",h:false},{t:"Functionalism",h:false},{t:"Behaviorism",h:true},{t:"Psychoanalysis",h:true},{t:"Humanism",h:false},{t:"Cognitive Neuroscience",h:false},{t:"Hypothesis",h:true},{t:"Theory",h:true},{t:"Operational Definition",h:true},{t:"Replication",h:true},{t:"Case Study",h:true},{t:"Survey",h:true},{t:"Naturalistic Observation",h:true},{t:"Random Sample",h:true},{t:"Correlation",h:true},{t:"Correlation Coefficient",h:true},{t:"Experiment",h:true},{t:"Independent Variable",h:true},{t:"Dependent Variable",h:true},{t:"Control Condition",h:true},{t:"Random Assignment",h:true},{t:"Double-Blind Procedure",h:true},{t:"Placebo Effect",h:true},{t:"Confounding Variable",h:false},{t:"Mean",h:false},{t:"Median",h:false},{t:"Mode",h:false},{t:"Standard Deviation",h:true},{t:"Statistical Significance",h:true},{t:"Effect Size",h:false},{t:"Meta-Analysis",h:false}],
+    tip:"Know the difference between correlation and causation — a classic AP exam trap!"}]},
+  {num:"Unit 2",title:"Biological Bases of Behavior",
+   preview:"Understand how neurons communicate, how brain structures govern behavior, and how the nervous and endocrine systems work together.",
+   chapters:[
+    {num:"Chapter 2",name:"The Biology of Mind",
+     overview:"Neurons, neural communication, brain structures, the nervous system, and the endocrine system.",
+     keyPoints:["Neurons: dendrites receive signals, soma integrates, axon transmits, terminal buttons release neurotransmitters.","Action potential: all-or-nothing; refractory period follows.","Synapse: neurotransmitters cross the cleft, bind to receptors, excite or inhibit.","Brain lobes: frontal (reasoning, motor), parietal (touch), occipital (vision), temporal (hearing).","Limbic system: amygdala (emotion), hippocampus (memory), hypothalamus (drives).","Imaging: EEG, CT, PET, MRI, fMRI."],
+     vocab:[{t:"Neuron",h:true},{t:"Dendrites",h:true},{t:"Axon",h:true},{t:"Myelin Sheath",h:true},{t:"Action Potential",h:true},{t:"Threshold",h:true},{t:"Synapse",h:true},{t:"Neurotransmitter",h:true},{t:"Reuptake",h:true},{t:"Acetylcholine",h:true},{t:"Dopamine",h:true},{t:"Serotonin",h:true},{t:"Norepinephrine",h:false},{t:"GABA",h:true},{t:"Endorphins",h:true},{t:"Central Nervous System",h:true},{t:"Peripheral Nervous System",h:true},{t:"Somatic Nervous System",h:false},{t:"Autonomic Nervous System",h:true},{t:"Sympathetic NS",h:true},{t:"Parasympathetic NS",h:true},{t:"Brainstem",h:true},{t:"Medulla",h:true},{t:"Cerebellum",h:true},{t:"Reticular Formation",h:false},{t:"Thalamus",h:true},{t:"Hypothalamus",h:true},{t:"Limbic System",h:true},{t:"Amygdala",h:true},{t:"Hippocampus",h:true},{t:"Cerebral Cortex",h:true},{t:"Frontal Lobe",h:true},{t:"Parietal Lobe",h:true},{t:"Occipital Lobe",h:true},{t:"Temporal Lobe",h:true},{t:"Motor Cortex",h:true},{t:"Somatosensory Cortex",h:true},{t:"Association Areas",h:false},{t:"Corpus Callosum",h:true},{t:"Split Brain",h:true},{t:"Neuroplasticity",h:true},{t:"Endocrine System",h:true},{t:"Pituitary Gland",h:true},{t:"Hormones",h:true},{t:"EEG",h:false},{t:"fMRI",h:true},{t:"PET Scan",h:false}],
+     tip:"Brain structures are heavily tested — know each lobe and the limbic system cold."},
+    {num:"Chapter 3",name:"Consciousness and the Two-Track Mind",
+     overview:"States of consciousness, sleep stages and disorders, dreams, hypnosis, and psychoactive drugs.",
+     keyPoints:["Consciousness operates on dual tracks (conscious and unconscious).","Sleep stages: NREM 1→2→3 then REM; each cycle ~90 min, REM lengthens across night.","Sleep functions: memory consolidation, restoration, growth hormone release.","Sleep disorders: insomnia, narcolepsy, sleep apnea, night terrors.","Freud: manifest vs. latent dream content. Activation-synthesis theory is the biological alternative.","Psychoactive drugs: depressants, stimulants, hallucinogens."],
+     vocab:[{t:"Consciousness",h:true},{t:"Dual Processing",h:true},{t:"Selective Attention",h:true},{t:"Inattentional Blindness",h:true},{t:"Change Blindness",h:false},{t:"Circadian Rhythm",h:true},{t:"REM Sleep",h:true},{t:"Alpha Waves",h:false},{t:"Sleep Spindles",h:false},{t:"Delta Waves",h:false},{t:"Insomnia",h:true},{t:"Narcolepsy",h:true},{t:"Sleep Apnea",h:true},{t:"Night Terrors",h:true},{t:"Manifest Content",h:true},{t:"Latent Content",h:true},{t:"Hypnosis",h:true},{t:"Psychoactive Drug",h:true},{t:"Tolerance",h:true},{t:"Withdrawal",h:true},{t:"Depressants",h:true},{t:"Stimulants",h:true},{t:"Hallucinogens",h:true},{t:"THC",h:false},{t:"LSD",h:false},{t:"Opiates",h:true}],
+     tip:"Know the sleep cycle order — REM periods get longer as the night progresses."}]},
+  {num:"Unit 3",title:"Sensation and Perception",
+   preview:"From the retina to the brain — how we convert raw physical energy into meaningful perceptual experience.",
+   chapters:[{num:"Chapter 4",name:"Sensation and Perception",
+    overview:"How we detect and interpret sensory information — from raw sensation to meaningful perception.",
+    keyPoints:["Sensation: stimulus detection via receptors; transduction converts stimuli to neural signals.","Absolute threshold: 50% detection minimum. Weber's Law: JND is a constant proportion.","Vision: rods (dim/periphery) vs. cones (color/detail/fovea). Two color theories: Young-Helmholtz and opponent-process.","Hearing: sound → eardrum → ossicles → cochlea → auditory nerve.","Gestalt: figure-ground, proximity, continuity, closure.","Depth perception: binocular (retinal disparity) + monocular (linear perspective) cues."],
+    vocab:[{t:"Sensation",h:true},{t:"Perception",h:true},{t:"Transduction",h:true},{t:"Absolute Threshold",h:true},{t:"Signal Detection Theory",h:true},{t:"Difference Threshold (JND)",h:true},{t:"Weber's Law",h:true},{t:"Sensory Adaptation",h:true},{t:"Retina",h:true},{t:"Rods",h:true},{t:"Cones",h:true},{t:"Fovea",h:true},{t:"Feature Detectors",h:true},{t:"Parallel Processing",h:false},{t:"Young-Helmholtz Theory",h:true},{t:"Opponent-Process Theory",h:true},{t:"Cochlea",h:true},{t:"Place Theory",h:true},{t:"Frequency Theory",h:true},{t:"Gate-Control Theory",h:true},{t:"Kinesthesis",h:true},{t:"Vestibular Sense",h:true},{t:"Gestalt",h:true},{t:"Figure-Ground",h:true},{t:"Proximity",h:false},{t:"Closure",h:false},{t:"Perceptual Constancy",h:true},{t:"Binocular Cues",h:true},{t:"Retinal Disparity",h:true},{t:"Monocular Cues",h:true},{t:"Linear Perspective",h:false},{t:"Perceptual Set",h:true},{t:"Top-Down Processing",h:true},{t:"Bottom-Up Processing",h:true}],
+    tip:"Both color theories are correct and both tested! Young-Helmholtz explains normal color vision; opponent-process explains afterimages."}]},
+  {num:"Unit 4",title:"Learning",
+   preview:"Classical conditioning, operant conditioning, and observational learning — how experience shapes behavior.",
+   chapters:[{num:"Chapter 5",name:"Learning",
+    overview:"Classical conditioning, operant conditioning, and observational learning.",
+    keyPoints:["Classical conditioning: NS+UCS→UCR; NS becomes CS→CR. Pavlov's dogs.","Operant conditioning: reinforcement increases behavior; punishment decreases it.","4 operant types: positive/negative reinforcement (both ↑ behavior), positive/negative punishment (both ↓ behavior).","Variable-ratio schedules: highest response rate, most extinction-resistant.","Observational learning (Bandura): Bobo doll — children imitated adult aggression.","Latent learning, cognitive maps, intrinsic vs. extrinsic motivation."],
+    vocab:[{t:"Learning",h:true},{t:"Habituation",h:true},{t:"Classical Conditioning",h:true},{t:"UCS (Unconditioned Stimulus)",h:true},{t:"UCR (Unconditioned Response)",h:true},{t:"CS (Conditioned Stimulus)",h:true},{t:"CR (Conditioned Response)",h:true},{t:"Acquisition",h:true},{t:"Extinction",h:true},{t:"Spontaneous Recovery",h:true},{t:"Generalization",h:true},{t:"Discrimination",h:true},{t:"Higher-Order Conditioning",h:false},{t:"Operant Conditioning",h:true},{t:"Law of Effect",h:true},{t:"Reinforcer",h:true},{t:"Positive Reinforcement",h:true},{t:"Negative Reinforcement",h:true},{t:"Positive Punishment",h:true},{t:"Negative Punishment",h:true},{t:"Fixed-Ratio Schedule",h:true},{t:"Variable-Ratio Schedule",h:true},{t:"Fixed-Interval Schedule",h:true},{t:"Variable-Interval Schedule",h:true},{t:"Shaping",h:true},{t:"Latent Learning",h:true},{t:"Cognitive Map",h:true},{t:"Insight",h:true},{t:"Intrinsic Motivation",h:true},{t:"Extrinsic Motivation",h:true},{t:"Observational Learning",h:true},{t:"Modeling",h:true},{t:"Bandura",h:true},{t:"Mirror Neurons",h:false},{t:"Bobo Doll Study",h:true}],
+    tip:"Variable-ratio schedules = highest rate + most extinction-resistant. Classic AP question!"}]},
+  {num:"Unit 5",title:"Cognitive Psychology",
+   preview:"Memory systems, forgetting, thinking strategies, language development, and theories of intelligence.",
+   chapters:[
+    {num:"Chapter 6",name:"Memory",
+     overview:"How we encode, store, and retrieve information, and why we forget.",
+     keyPoints:["Three processes: encoding, storage, retrieval.","Sensory → Working (7±2 items) → Long-Term (unlimited).","Explicit: episodic + semantic. Implicit: procedural + conditioned.","Spacing effect and testing effect improve long-term retention.","Forgetting: proactive interference (old blocks new) vs. retroactive (new blocks old).","Misinformation effect: false memories can be implanted (Loftus)."],
+     vocab:[{t:"Encoding",h:true},{t:"Storage",h:true},{t:"Retrieval",h:true},{t:"Sensory Memory",h:true},{t:"Working Memory",h:true},{t:"Long-Term Memory",h:true},{t:"Explicit Memory",h:true},{t:"Implicit Memory",h:true},{t:"Episodic Memory",h:true},{t:"Semantic Memory",h:true},{t:"Procedural Memory",h:false},{t:"Hippocampus",h:true},{t:"Effortful Processing",h:true},{t:"Spacing Effect",h:true},{t:"Testing Effect",h:true},{t:"Serial Position Effect",h:true},{t:"Primacy Effect",h:false},{t:"Recency Effect",h:false},{t:"Priming",h:true},{t:"Context-Dependent Memory",h:true},{t:"State-Dependent Memory",h:true},{t:"Mood-Congruent Memory",h:false},{t:"Recall",h:true},{t:"Recognition",h:true},{t:"Proactive Interference",h:true},{t:"Retroactive Interference",h:true},{t:"Repression",h:true},{t:"Misinformation Effect",h:true},{t:"Source Amnesia",h:true},{t:"Flashbulb Memory",h:true},{t:"Anterograde Amnesia",h:true},{t:"Retrograde Amnesia",h:true}],
+     tip:"Proactive = OLD blocks NEW. Retroactive = NEW blocks OLD. Make a mnemonic!"},
+    {num:"Chapter 7",name:"Thinking, Language, and Intelligence",
+     overview:"Problem-solving, cognitive biases, language, and theories of intelligence.",
+     keyPoints:["Algorithms guarantee solutions; heuristics are faster but error-prone.","Biases: availability, representativeness, overconfidence, framing, confirmation bias.","Language: phonemes → morphemes → syntax. Chomsky: universal grammar. Whorf: linguistic relativity.","Development: babbling → one-word (12 mo.) → two-word (18–24 mo.) → telegraphic.","Intelligence: Spearman (g), Gardner (8 intelligences), Sternberg (triarchic).","IQ tests: Stanford-Binet, Wechsler; normal distribution (mean=100, SD=15). Flynn effect."],
+     vocab:[{t:"Concept",h:true},{t:"Prototype",h:true},{t:"Algorithm",h:true},{t:"Heuristic",h:true},{t:"Insight",h:true},{t:"Confirmation Bias",h:true},{t:"Mental Set",h:true},{t:"Functional Fixedness",h:true},{t:"Representativeness Heuristic",h:true},{t:"Availability Heuristic",h:true},{t:"Overconfidence",h:false},{t:"Framing",h:true},{t:"Belief Perseverance",h:false},{t:"Phoneme",h:true},{t:"Morpheme",h:true},{t:"Universal Grammar",h:true},{t:"Linguistic Relativity",h:true},{t:"General Intelligence (g)",h:true},{t:"Multiple Intelligences",h:true},{t:"Triarchic Theory",h:true},{t:"Emotional Intelligence",h:false},{t:"Stanford-Binet",h:true},{t:"Wechsler Scales",h:true},{t:"Reliability",h:true},{t:"Validity",h:true},{t:"Standardization",h:true},{t:"Normal Curve",h:true},{t:"Flynn Effect",h:true},{t:"Stereotype Threat",h:true}],
+     tip:"Know all three intelligence theories and be able to compare them on the FRQ."}]},
+  {num:"Unit 6",title:"Developmental Psychology",
+   preview:"From zygote to old age — physical, cognitive, and social development across the entire lifespan.",
+   chapters:[{num:"Chapter 8",name:"Lifespan Development",
+    overview:"Physical, cognitive, and social development from conception through death.",
+    keyPoints:["Prenatal stages: germinal, embryonic, fetal. Teratogens cause birth defects.","Piaget: sensorimotor (object permanence) → preoperational (egocentrism) → concrete operational (conservation) → formal operational (abstract).","Vygotsky: ZPD and scaffolding; social context matters.","Harlow & Ainsworth: attachment via contact comfort; secure, anxious, avoidant styles.","Erikson: 8 psychosocial stages from Trust vs. Mistrust to Integrity vs. Despair.","Kohlberg: preconventional → conventional → postconventional moral reasoning."],
+    vocab:[{t:"Teratogen",h:true},{t:"Fetal Alcohol Syndrome",h:true},{t:"Schema",h:true},{t:"Assimilation",h:true},{t:"Accommodation",h:true},{t:"Sensorimotor Stage",h:true},{t:"Object Permanence",h:true},{t:"Preoperational Stage",h:true},{t:"Egocentrism",h:true},{t:"Theory of Mind",h:true},{t:"Concrete Operational Stage",h:true},{t:"Conservation",h:true},{t:"Formal Operational Stage",h:true},{t:"Zone of Proximal Development",h:true},{t:"Scaffolding",h:true},{t:"Attachment",h:true},{t:"Critical Period",h:true},{t:"Secure Attachment",h:true},{t:"Anxious Attachment",h:false},{t:"Avoidant Attachment",h:false},{t:"Erikson's Psychosocial Stages",h:true},{t:"Trust vs. Mistrust",h:true},{t:"Autonomy vs. Shame",h:false},{t:"Initiative vs. Guilt",h:false},{t:"Industry vs. Inferiority",h:false},{t:"Identity vs. Role Confusion",h:true},{t:"Intimacy vs. Isolation",h:false},{t:"Generativity vs. Stagnation",h:false},{t:"Integrity vs. Despair",h:false},{t:"Preconventional Morality",h:true},{t:"Conventional Morality",h:true},{t:"Postconventional Morality",h:true},{t:"Alzheimer's Disease",h:true},{t:"Fluid Intelligence",h:true},{t:"Crystallized Intelligence",h:true}],
+    tip:"Piaget's stages AND Erikson's stages are both frequently tested — memorize them in order with approximate ages."}]},
+  {num:"Unit 7",title:"Motivation, Emotion, and Personality",
+   preview:"Why we do what we do, how we feel, and what makes each of us unique — motivation theories, emotion, and personality models.",
+   chapters:[
+    {num:"Chapter 9",name:"Motivation and Emotion",
+     overview:"Theories of motivation, biological drives, emotion theories, and emotional expression.",
+     keyPoints:["Maslow: physiological → safety → belonging → esteem → self-actualization.","Hunger: ghrelin (hunger on), leptin (satiety). Hypothalamus regulates.","Emotion theories: James-Lange (body→emotion), Cannon-Bard (simultaneous), Schachter two-factor (arousal+label).","Yerkes-Dodson: performance peaks at moderate arousal.","Facial feedback hypothesis: facial expressions influence emotion.","Polygraph measures physiological arousal, not lying directly."],
+     vocab:[{t:"Motivation",h:true},{t:"Drive-Reduction Theory",h:true},{t:"Homeostasis",h:true},{t:"Arousal Theory",h:true},{t:"Yerkes-Dodson Law",h:true},{t:"Hierarchy of Needs",h:true},{t:"Self-Actualization",h:true},{t:"Glucose",h:false},{t:"Hypothalamus",h:true},{t:"Ghrelin",h:true},{t:"Leptin",h:true},{t:"Set Point",h:true},{t:"Anorexia Nervosa",h:true},{t:"Bulimia Nervosa",h:true},{t:"Binge-Eating Disorder",h:false},{t:"Emotion",h:true},{t:"James-Lange Theory",h:true},{t:"Cannon-Bard Theory",h:true},{t:"Schachter's Two-Factor Theory",h:true},{t:"Spillover Effect",h:false},{t:"Polygraph",h:true},{t:"Facial Feedback Effect",h:true},{t:"Catharsis",h:true}],
+     tip:"Master all three emotion theories — know the exact sequence of events for each."},
+    {num:"Chapter 10",name:"Personality",
+     overview:"Psychoanalytic, humanistic, trait, and social-cognitive personality theories, plus assessment.",
+     keyPoints:["Freud: id (pleasure), ego (reality), superego (morality). Psychosexual stages.","Defense mechanisms: repression, projection, rationalization, reaction formation, displacement, regression, sublimation.","Neo-Freudians: Adler (inferiority), Jung (collective unconscious), Horney (security).","Humanistic: Rogers (unconditional positive regard), Maslow.","Big Five (OCEAN): Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism.","Social-cognitive: Bandura (reciprocal determinism), Rotter (locus of control)."],
+     vocab:[{t:"Personality",h:true},{t:"Id",h:true},{t:"Ego",h:true},{t:"Superego",h:true},{t:"Unconscious",h:true},{t:"Free Association",h:true},{t:"Psychosexual Stages",h:true},{t:"Oedipus Complex",h:true},{t:"Fixation",h:true},{t:"Defense Mechanisms",h:true},{t:"Repression",h:true},{t:"Projection",h:true},{t:"Rationalization",h:true},{t:"Reaction Formation",h:true},{t:"Displacement",h:true},{t:"Sublimation",h:true},{t:"Regression",h:true},{t:"Collective Unconscious",h:true},{t:"Archetypes",h:false},{t:"Inferiority Complex",h:false},{t:"Self-Concept",h:true},{t:"Unconditional Positive Regard",h:true},{t:"Big Five (OCEAN)",h:true},{t:"Openness",h:false},{t:"Conscientiousness",h:false},{t:"Extraversion",h:false},{t:"Agreeableness",h:false},{t:"Neuroticism",h:false},{t:"Reciprocal Determinism",h:true},{t:"Locus of Control",h:true},{t:"Self-Efficacy",h:true},{t:"MMPI",h:true},{t:"Rorschach Inkblot Test",h:true},{t:"TAT",h:true}],
+     tip:"Know Freud's defense mechanisms by name AND example — the AP exam loves scenario-based identification questions."}]},
+  {num:"Unit 8",title:"Clinical Psychology",
+   preview:"Recognizing, classifying, and treating psychological disorders — from diagnosis to therapy and medication.",
+   chapters:[
+    {num:"Chapter 12",name:"Psychological Disorders",
+     overview:"Classification, causes, and characteristics of major psychological disorders per DSM-5.",
+     keyPoints:["4 D's: distress, dysfunction, deviance, danger.","Anxiety: GAD, panic, phobias, OCD, PTSD.","Mood: MDD (5+ symptoms ≥2 weeks), bipolar I vs. II.","Schizophrenia: positive (hallucinations/delusions) vs. negative symptoms (flat affect). Dopamine hypothesis.","Dissociative: DID, dissociative amnesia.","Personality disorders: Cluster A (odd), B (dramatic), C (anxious)."],
+     vocab:[{t:"DSM-5",h:true},{t:"Generalized Anxiety Disorder",h:true},{t:"Panic Disorder",h:true},{t:"Specific Phobia",h:true},{t:"Social Anxiety Disorder",h:true},{t:"OCD",h:true},{t:"PTSD",h:true},{t:"Major Depressive Disorder",h:true},{t:"Learned Helplessness",h:true},{t:"Bipolar Disorder",h:true},{t:"Mania",h:true},{t:"Schizophrenia",h:true},{t:"Positive Symptoms",h:true},{t:"Negative Symptoms",h:true},{t:"Hallucinations",h:true},{t:"Delusions",h:true},{t:"Disorganized Thinking",h:false},{t:"Dopamine Hypothesis",h:true},{t:"Flat Affect",h:false},{t:"Dissociative Identity Disorder",h:true},{t:"Dissociative Amnesia",h:true},{t:"Personality Disorder",h:true},{t:"Antisocial Personality Disorder",h:true},{t:"Borderline Personality Disorder",h:false},{t:"ADHD",h:true},{t:"Autism Spectrum Disorder",h:true},{t:"Anorexia Nervosa",h:true},{t:"Bulimia Nervosa",h:true}],
+     tip:"Positive symptoms = ADDED (hallucinations). Negative symptoms = REMOVED (flat affect). Don't confuse 'positive' with 'good.'"},
+    {num:"Chapter 13",name:"Treatment of Psychological Disorders",
+     overview:"Psychotherapy approaches, biomedical therapies, and evaluating treatment effectiveness.",
+     keyPoints:["Psychoanalytic: free association, dream analysis, resistance, transference.","Client-centered (Rogers): empathy, unconditional positive regard, active listening.","Behavioral: systematic desensitization, exposure therapy, aversive conditioning, token economy.","Cognitive (Beck/Ellis): identify and dispute irrational thoughts. CBT combines both.","Biomedical: SSRIs (depression), antipsychotics (schizophrenia), lithium (bipolar), anxiolytics.","ECT for treatment-resistant depression; TMS emerging alternative."],
+     vocab:[{t:"Psychotherapy",h:true},{t:"Eclectic Approach",h:false},{t:"Transference",h:true},{t:"Resistance",h:false},{t:"Client-Centered Therapy",h:true},{t:"Unconditional Positive Regard",h:true},{t:"Active Listening",h:false},{t:"Systematic Desensitization",h:true},{t:"Exposure Therapy",h:true},{t:"Aversive Conditioning",h:true},{t:"Token Economy",h:true},{t:"Cognitive Therapy",h:true},{t:"CBT",h:true},{t:"REBT",h:true},{t:"SSRIs",h:true},{t:"Antidepressants",h:true},{t:"Antipsychotics",h:true},{t:"Mood Stabilizers",h:true},{t:"Lithium",h:true},{t:"Anxiolytics",h:false},{t:"ECT",h:true},{t:"TMS",h:false}],
+     tip:"CBT is the most tested modern therapy. Be ready to apply it in FRQ scenarios."}]},
+  {num:"Unit 9",title:"Social Psychology",
+   preview:"How we think about, influence, and relate to one another — from attribution error to obedience, prejudice, and altruism.",
+   chapters:[{num:"Chapter 11",name:"Social Psychology",
+    overview:"Social cognition, conformity, obedience, group behavior, prejudice, attraction, and altruism.",
+    keyPoints:["Attribution: dispositional vs. situational. Fundamental Attribution Error = overestimating dispositional.","Cognitive dissonance (Festinger): tension from conflicting beliefs drives attitude change.","Conformity (Asch): ~37% on line-length tasks; normative vs. informational influence.","Obedience (Milgram): 65% obeyed fully; situational factors (authority, proximity) matter most.","Group effects: social facilitation, social loafing, deindividuation, groupthink, group polarization.","Bystander effect: diffusion of responsibility reduces helping in crowds."],
+    vocab:[{t:"Attribution Theory",h:true},{t:"Dispositional Attribution",h:true},{t:"Situational Attribution",h:true},{t:"Fundamental Attribution Error",h:true},{t:"Self-Serving Bias",h:true},{t:"Cognitive Dissonance",h:true},{t:"Foot-in-the-Door",h:true},{t:"Door-in-the-Face",h:false},{t:"Central Route Persuasion",h:false},{t:"Peripheral Route",h:false},{t:"Conformity",h:true},{t:"Normative Social Influence",h:true},{t:"Informational Social Influence",h:true},{t:"Asch's Conformity Study",h:true},{t:"Obedience",h:true},{t:"Milgram Study",h:true},{t:"Social Facilitation",h:true},{t:"Social Loafing",h:true},{t:"Deindividuation",h:true},{t:"Groupthink",h:true},{t:"Group Polarization",h:true},{t:"Prejudice",h:true},{t:"Stereotype",h:true},{t:"Discrimination",h:true},{t:"In-Group Bias",h:true},{t:"Scapegoat Theory",h:true},{t:"Just-World Phenomenon",h:false},{t:"Bystander Effect",h:true},{t:"Diffusion of Responsibility",h:true},{t:"Altruism",h:true},{t:"Mere Exposure Effect",h:true},{t:"Aggression",h:true}],
+    tip:"Milgram and Asch studies are major AP topics — know procedures, exact results, and implications for both."}]}
+];
+
+// ─────────────────────────────────────────────
+// VOCAB MODAL STATE
+// ─────────────────────────────────────────────
+let allVocabFlat = [];
+let currentVocabIdx = 0;
+
+function buildFlatVocab() {
+  allVocabFlat = [];
+  units.forEach(u => {
+    u.chapters.forEach(ch => {
+      ch.vocab.forEach(v => {
+        allVocabFlat.push({term: v.t, high: v.h, unit: u.num, ch: ch.name});
+      });
+    });
+  });
+}
+
+function openVocabModal(term, unitNum, chName) {
+  const idx = allVocabFlat.findIndex(v => v.term === term && v.unit === unitNum);
+  currentVocabIdx = idx >= 0 ? idx : allVocabFlat.findIndex(v => v.term === term);
+  renderVocabModal(currentVocabIdx);
+  document.getElementById('vocab-modal').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderVocabModal(idx) {
+  const v = allVocabFlat[idx];
+  if (!v) return;
+  document.getElementById('modal-term').textContent = v.term;
+  document.getElementById('modal-unit-tag').textContent = v.unit + ' — ' + v.ch;
+  const def = DEFS[v.term] || 'Definition coming soon. Refer to your Myers\' textbook for this term.';
+  document.getElementById('modal-def').textContent = def;
+  const ex = EXAMPLES[v.term];
+  const exWrap = document.getElementById('modal-example-wrap');
+  if (ex) {
+    document.getElementById('modal-example').textContent = ex;
+    exWrap.style.display = 'block';
+  } else {
+    exWrap.style.display = 'none';
+  }
+}
+
+function navModal(dir) {
+  currentVocabIdx = (currentVocabIdx + dir + allVocabFlat.length) % allVocabFlat.length;
+  renderVocabModal(currentVocabIdx);
+}
+
+function closeVocabModal(e) {
+  if (e.target === document.getElementById('vocab-modal')) closeVocabModalBtn();
+}
+function closeVocabModalBtn() {
+  document.getElementById('vocab-modal').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+// ─────────────────────────────────────────────
+// QUIZ STATE
+// ─────────────────────────────────────────────
+let quizState = {};
+
+function buildQuizVocab(unitIdx) {
+  const u = units[unitIdx];
+  let pool = [];
+  u.chapters.forEach(ch => {
+    ch.vocab.forEach(v => {
+      const def = DEFS[v.t];
+      if (def) pool.push({term: v.t, def});
+    });
+  });
+  return pool;
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function getDistractors(correctTerm, allPool, n) {
+  const others = allPool.filter(v => v.term !== correctTerm);
+  return shuffle(others).slice(0, n);
+}
+
+function startQuiz(unitIdx) {
+  const pool = shuffle(buildQuizVocab(unitIdx));
+  const questions = pool.slice(0, Math.min(15, pool.length));
+  quizState = {
+    unitIdx, questions, pool,
+    current: 0,
+    score: 0,
+    answered: false,
+    missed: []
+  };
+  document.getElementById('quiz-overlay').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const qs = quizState.questions;
+  const i = quizState.current;
+  if (i >= qs.length) { renderQuizResults(); return; }
+  const q = qs[i];
+  const distractors = getDistractors(q.term, quizState.pool, 3);
+  const choices = shuffle([{term: q.term, def: q.def, correct: true}, ...distractors.map(d => ({term: d.term, def: d.def, correct: false}))]);
+  const pct = Math.round((i / qs.length) * 100);
+  document.getElementById('quiz-content').innerHTML = `
+    <div class="quiz-header">
+      <div class="quiz-unit-label">${units[quizState.unitIdx].num} Quiz</div>
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+      <div class="quiz-counter">Question ${i+1} of ${qs.length} &bull; Score: ${quizState.score}</div>
+    </div>
+    <div class="quiz-question">What is the definition of...</div>
+    <div class="quiz-term">${q.term}</div>
+    <div class="quiz-choices" id="quiz-choices">
+      ${choices.map((c, ci) => `<button class="quiz-choice" onclick="selectAnswer(${ci}, ${c.correct}, '${q.term.replace(/'/g,"\\'")}', '${q.def.replace(/'/g,"\\'").replace(/"/g,"&quot;")}', '${c.def.replace(/'/g,"\\'").replace(/"/g,"&quot;")}')"><strong>${['A','B','C','D'][ci]}.</strong> ${c.def}</button>`).join('')}
+    </div>
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+    <button class="quiz-next-btn" id="quiz-next" onclick="nextQuestion()">Next Question &rarr;</button>
+  `;
+}
+
+function selectAnswer(choiceIdx, isCorrect, term, correctDef, chosenDef) {
+  if (quizState.answered) return;
+  quizState.answered = true;
+  const buttons = document.querySelectorAll('.quiz-choice');
+  const feedback = document.getElementById('quiz-feedback');
+  buttons.forEach(b => b.disabled = true);
+  buttons[choiceIdx].classList.add(isCorrect ? 'correct' : 'wrong');
+  if (!isCorrect) {
+    // highlight correct
+    buttons.forEach(b => {
+      if (b.textContent.includes(correctDef.substring(0,30))) b.classList.add('correct');
+    });
+    quizState.missed.push({term, def: correctDef});
+    feedback.className = 'quiz-feedback show wrong';
+    feedback.innerHTML = `<strong>&#10007; Not quite!</strong> The correct definition is: ${correctDef}`;
+  } else {
+    quizState.score++;
+    feedback.className = 'quiz-feedback show correct';
+    feedback.innerHTML = `<strong>&#10003; Correct!</strong> ${correctDef}`;
+  }
+  const nextBtn = document.getElementById('quiz-next');
+  nextBtn.classList.add('show');
+  if (quizState.current + 1 >= quizState.questions.length) {
+    nextBtn.textContent = 'See Results';
+  }
+}
+
+function nextQuestion() {
+  quizState.current++;
+  quizState.answered = false;
+  renderQuizQuestion();
+}
+
+function renderQuizResults() {
+  const pct = Math.round((quizState.score / quizState.questions.length) * 100);
+  let msg = pct >= 90 ? '🎉 Excellent work! You\'re well prepared for this unit.' :
+            pct >= 70 ? '👍 Good job! Review the missed terms and try again.' :
+            pct >= 50 ? '📖 Keep studying! Focus on the highlighted terms below.' :
+                        '💪 Don\'t give up — review the unit and retake the quiz!';
+  const missedHTML = quizState.missed.length ? `
+    <div class="quiz-missed">
+      <h4>Terms to review (${quizState.missed.length})</h4>
+      ${quizState.missed.map(m => `<div class="missed-item"><div class="missed-term">${m.term}</div><div class="missed-def">${m.def}</div></div>`).join('')}
+    </div>` : '';
+  document.getElementById('quiz-content').innerHTML = `
+    <div class="quiz-results">
+      <div class="quiz-score-big">${pct}%</div>
+      <div class="quiz-score-label">${quizState.score} / ${quizState.questions.length} correct</div>
+      <div class="quiz-score-msg">${msg}</div>
+      <div class="quiz-result-actions">
+        <button class="quiz-retry-btn" onclick="startQuiz(${quizState.unitIdx})">Retake Quiz</button>
+        <button class="quiz-done-btn" onclick="closeQuizModalBtn()">Done</button>
+      </div>
+      ${missedHTML}
+    </div>
+  `;
+}
+
+function closeQuizModal(e) {
+  if (e.target === document.getElementById('quiz-overlay')) closeQuizModalBtn();
+}
+function closeQuizModalBtn() {
+  document.getElementById('quiz-overlay').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+// ─────────────────────────────────────────────
+// UNIT NAV & SEARCH
+// ─────────────────────────────────────────────
+function buildNav() {
+  const nav = document.getElementById('unit-nav');
+  nav.innerHTML = '<button class="unit-btn active" onclick="showAll(this)">All Units</button>';
+  units.forEach((u, i) => {
+    nav.innerHTML += `<button class="unit-btn" onclick="jumpToUnit(${i}, this)">${u.num}</button>`;
+  });
+}
+
+function showAll(btn) {
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-section').forEach(s => s.style.display = '');
+  document.getElementById('search-results-display').innerHTML = '';
+  document.getElementById('search-result').textContent = '';
+  document.getElementById('vocab-search').value = '';
+}
+
+function jumpToUnit(i, btn) {
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.unit-section').forEach((s, idx) => {
+    s.style.display = idx === i ? '' : 'none';
+    if (idx === i) {
+      const hdr = s.querySelector('.unit-header');
+      if (!hdr.classList.contains('open')) toggleUnit(hdr);
+      setTimeout(() => s.scrollIntoView({behavior:'smooth',block:'start'}), 50);
+    }
+  });
+  document.getElementById('search-results-display').innerHTML = '';
+  document.getElementById('search-result').textContent = '';
+  document.getElementById('vocab-search').value = '';
+}
+
+function toggleUnit(hdr) {
+  hdr.classList.toggle('open');
+  hdr.nextElementSibling.classList.toggle('open');
+}
+
+function filterVocab(q) {
+  const resultEl = document.getElementById('search-result');
+  const displayEl = document.getElementById('search-results-display');
+  q = q.toLowerCase().trim();
+  if (!q) {
+    resultEl.textContent = '';
+    displayEl.innerHTML = '';
+    document.querySelectorAll('.unit-section').forEach(s => s.style.display = '');
+    document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.unit-btn').classList.add('active');
+    return;
+  }
+  let found = [];
+  units.forEach(u => {
+    u.chapters.forEach(ch => {
+      ch.vocab.forEach(v => {
+        if (v.t.toLowerCase().includes(q)) found.push({term:v.t,high:v.h,unit:u.num,ch:ch.name,unitIdx:units.indexOf(u)});
+      });
+    });
+  });
+  document.querySelectorAll('.unit-section').forEach(s => s.style.display = 'none');
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+  if (!found.length) { resultEl.textContent = 'No matching terms found.'; displayEl.innerHTML=''; return; }
+  resultEl.textContent = `${found.length} result${found.length!==1?'s':''} found — click a term for its definition`;
+  displayEl.innerHTML = found.map(f => `
+    <div class="sr-item">
+      <span class="vocab-pill ${f.high?'high':''}" onclick="openVocabModal('${f.term.replace(/'/g,"\\'")}','${f.unit}','${f.ch}')" style="cursor:pointer">${f.term}</span>
+      <span class="sr-meta">${f.unit} &mdash; ${f.ch}</span>
+      ${f.high?'<span class="sr-hi">HIGH PRIORITY</span>':''}
+    </div>`).join('');
+}
+
+// ─────────────────────────────────────────────
+// BUILD UNITS
+// ─────────────────────────────────────────────
+function buildUnits() {
+  const container = document.getElementById('units-container');
+  units.forEach((u, unitIdx) => {
+    const sec = document.createElement('div');
+    sec.className = 'unit-section';
+    sec.id = 'unit-' + unitIdx;
+    const chHtml = u.chapters.map(ch => `
+      <div class="chapter">
+        <div class="ch-label">${ch.num}</div>
+        <div class="ch-name">${ch.name}</div>
+        <div class="content-block">
+          <div class="content-label">Overview</div>
+          <div class="content-text">${ch.overview}</div>
+        </div>
+        <div class="content-block">
+          <div class="content-label">Key Concepts</div>
+          ${ch.keyPoints.map(p=>`<div class="key-point">${p}</div>`).join('')}
+        </div>
+        <div class="content-block">
+          <div class="content-label">Vocabulary — click any term for its definition</div>
+          <div class="vocab-grid">
+            ${ch.vocab.map(v=>`<span class="vocab-pill ${v.h?'high':''}" onclick="openVocabModal('${v.t.replace(/'/g,"\\'")}','${u.num}','${ch.name}')" title="Click for definition">${v.t}</span>`).join('')}
+          </div>
+        </div>
+        ${ch.tip?`<div class="tip-box"><strong>&#x2714; AP Exam Tip:</strong> ${ch.tip}</div>`:''}
+      </div>`).join('');
+    sec.innerHTML = `
+      <div class="unit-header" onclick="toggleUnit(this)">
+        <div class="unit-header-left">
+          <div class="unit-num">${u.num}</div>
+          <div class="unit-title">${u.title}</div>
+          <div class="unit-preview">${u.preview}</div>
+        </div>
+        <div class="unit-header-right">
+          <div class="unit-chevron">&#9660;</div>
+          <button class="quiz-btn" onclick="event.stopPropagation();startQuiz(${unitIdx})">&#9998; Quiz Me</button>
+        </div>
+      </div>
+      <div class="unit-body">${chHtml}</div>`;
+    container.appendChild(sec);
+  });
+}
+
+buildFlatVocab();
+buildUnits();
+buildNav();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeVocabModalBtn();
+    closeQuizModalBtn();
+  }
+  if (document.getElementById('vocab-modal').classList.contains('visible')) {
+    if (e.key === 'ArrowRight') navModal(1);
+    if (e.key === 'ArrowLeft') navModal(-1);
+  }
+});
+</script>
+</body>
+</html>
